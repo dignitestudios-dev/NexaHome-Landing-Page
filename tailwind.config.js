@@ -14,8 +14,8 @@ module.exports = {
         accent: "#F5A623",
       },
       fontFamily: {
-        sans: ["'DM Sans'", "sans-serif"],
-        heading: ["'Playfair Display'", "serif"],
+        sans: ["'Plus Jakarta Sans'", "sans-serif"],
+        heading: ["'Plus Jakarta Sans'", "sans-serif"],
       },
     },
   },
