@@ -9,20 +9,28 @@ export default function HomeownersAbout() {
               About <span className="font-bold">NexaHome</span>
             </h2>
             <p className="text-[#242424] text-sm font-medium mb-4 leading-relaxed">
-              NexaHome is redefining how people care for their property. We've built a simplified platform that takes the complexity out of finding, hiring, and managing home projects — making the process more transparent, efficient, and dependable.
+              NexaHome is redefining how people care for their property. We've
+              built a simplified platform that takes the complexity out of
+              finding, hiring, and managing home projects — making the process
+              more transparent, efficient, and dependable.
             </p>
             <p className="text-[#242424] text-sm font-medium mb-4 leading-relaxed">
-              Our mission is to empower homeowners with the confidence to make their house a home. By providing access to a network of trusted, carefully vetted experts, NexaHome helps connect you with skilled providers committed to delivering quality workmanship and reliable service for every job.
+              Our mission is to empower homeowners with the confidence to make
+              their house a home. By providing access to a network of trusted,
+              carefully vetted experts, NexaHome helps connect you with skilled
+              providers committed to delivering quality workmanship and reliable
+              service for every job.
             </p>
             <p className="text-[#242424] text-sm font-medium leading-relaxed">
-              From pool cleaning to urgent repairs, NexaHome is your partner in bringing your vision to life — simply and seamlessly.
+              From pool cleaning to urgent repairs, NexaHome is your partner in
+              bringing your vision to life — simply and seamlessly.
             </p>
           </div>
 
           {/* Right Image */}
           <div className="relative rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=700&q=80"
+              src="/about-nexa.png"
               alt="Pool cleaning expert"
               className="w-full h-[380px] object-cover"
             />

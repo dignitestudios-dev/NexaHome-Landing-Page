@@ -1,27 +1,27 @@
 const inspirations = [
   {
     label: "Interior Design",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80",
+    image: "/featured1.png",
     span: "col-span-1",
-    height: "h-[280px]",
+    height: "h-[340px]",
   },
   {
     label: "Fencing",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80",
+    image: "/featured2.png",
     span: "col-span-1",
-    height: "h-[280px]",
+    height: "h-[340px]",
   },
   {
     label: "Gutter Installation",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80",
+    image: "/featured3.png",
     span: "col-span-1",
-    height: "h-[280px]",
+    height: "h-[340px]",
   },
   {
     label: "Landscaping",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80",
+    image: "/featured4.png",
     span: "col-span-1",
-    height: "h-[280px]",
+    height: "h-[340px]",
   },
 ];
 

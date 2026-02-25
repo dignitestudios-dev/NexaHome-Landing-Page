@@ -1,63 +1,58 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                </svg>
-              </div>
-              <span className="text-lg font-bold font-heading">NexaHome</span>
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Connecting homeowners with trusted home service experts.
-            </p>
+    <footer className="bg-white text-black">
+      <div className="max-w-[1240px] mx-auto px-6 py-10">
+        {/* Top Row */}
+        <div className="flex items-start justify-between">
+          {/* Logo */}
+          <div>
+            <Image
+              src="/logo.png"
+              alt="NexaHome Logo"
+              width={230}
+              height={70}
+              priority
+            />
           </div>
 
-          {[
-            {
-              title: "Company",
-              links: ["About Us", "How It Works", "Features", "Contact Us"],
-            },
-            {
-              title: "Services",
-              links: ["Electrician", "Plumbing", "HVAC", "Landscaping", "Cleaning"],
-            },
-            {
-              title: "Legal",
-              links: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
-            },
-          ].map((col) => (
-            <div key={col.title}>
-              <h4 className="font-semibold text-sm uppercase tracking-wider text-gray-300 mb-4">{col.title}</h4>
-              <ul className="space-y-2">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    <Link href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                      {link}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {/* Social Icons */}
+          <div className="flex gap-4">
+            <div className="w-[43px] h-[43px] flex items-center justify-center rounded-full">
+              <img src="/fb.png" alt="facebook" className="w-full h-full" />
             </div>
-          ))}
+
+            <div className="w-[43px] h-[43px] flex items-center justify-center ">
+              <img src="/insta.png" alt="instagram" className="w-full h-full" />
+            </div>
+          </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} NexaHome. All rights reserved.
-          </p>
-          <div className="flex gap-4">
-            {["Twitter", "LinkedIn", "Facebook", "Instagram"].map((social) => (
-              <a key={social} href="#" className="text-gray-500 hover:text-white text-sm transition-colors">
-                {social}
-              </a>
-            ))}
+        {/* Divider */}
+        <div className="border-t border-[#DCDCDC] my-8"></div>
+
+        {/* Bottom Row */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+          {/* Left Side */}
+          <div className="text-sm text-black">
+            <p>Copyright © 2025 NexaHome.</p>
+            <p>All rights reserved.</p>
+          </div>
+
+          {/* Right Side */}
+          <div className="flex flex-col md:items-end text-sm gap-2">
+            <div className="flex gap-2">
+              <Link href="#" className="hover:underline">
+                Terms & Conditions
+              </Link>
+              <span>/</span>
+              <Link href="#" className="hover:underline">
+                Privacy Policy
+              </Link>
+            </div>
+            <p className="text-black/70">Support@NexaHome.com</p>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ import Testimonials from "../../components/homeowners/Testimonials";
 import HomeownersAbout from "../../components/homeowners/HomeownersAbout";
 import HomeownersFAQ from "../../components/homeowners/HomeownersFAQ";
 import HomeownersWaitlist from "../../components/homeowners/HomeownersWaitlist";
-import CtaBanner from "../../components/CtaBanner";
+import HomeOwnerCtaBanner from "../../components/homeowners/CtaBanner";
 
 export default function HomeownersPage() {
   return (
@@ -24,7 +24,7 @@ export default function HomeownersPage() {
       <HomeownersAbout />
       <HomeownersFAQ />
       <HomeownersWaitlist />
-      <CtaBanner />
+      <HomeOwnerCtaBanner />
       <Footer />
     </main>
   );

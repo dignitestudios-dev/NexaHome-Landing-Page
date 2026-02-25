@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -9,17 +9,25 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-200 inline-block;
+    @apply bg-primary text-white px-6 py-3 rounded-[14px] font-semibold hover:bg-primary-dark transition-all duration-200 inline-block;
   }
   .btn-outline {
-    @apply border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-200 inline-block;
+    @apply border-2 border-primary text-primary px-6 py-3 rounded-[14px] font-semibold hover:bg-primary hover:text-white transition-all duration-200 inline-block;
   }
   .section-title {
     @apply text-3xl md:text-4xl font-heading font-bold text-gray-900;
   }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
