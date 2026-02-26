@@ -44,9 +44,7 @@ function FAQItem({ question, answer }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors"
       >
-        <span className="font-semibold text-gray-800">
-          {question}
-        </span>
+        <span className="font-semibold text-gray-800">{question}</span>
 
         {/* Icon Container (background stays rounded) */}
         <span className="text-[#4A5565] bg-gray-100 rounded-lg p-2 flex items-center justify-center">
@@ -92,7 +90,9 @@ export default function FAQ() {
           <h2 className="section-title">
             Frequently Asked <span className="font-bold">Questions</span>
           </h2>
-          <p className="text-[16px] mt-3">Everything You Need To Know About Using NexaHome</p>
+          <p className="text-[16px] mt-3">
+            Everything You Need To Know About Using NexaHome
+          </p>
         </div>
         <div className="space-y-3">
           {faqs.map((faq) => (
