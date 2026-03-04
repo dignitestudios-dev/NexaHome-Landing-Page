@@ -18,13 +18,13 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <h1 className="section-title text-4xl md:text-5xl leading-tight mb-4">
+            <h1 className="section-title capitalize font-[500] text-4xl md:text-5xl leading-tight mb-4">
               Welcome to <span className="font-bold">NexaHome</span>
             </h1>
-            <p className="text-lg font-semibold text-gray-700 mb-3">
+            <p className="text-lg capitalize font-semibold text-gray-700 mb-3">
               Connect with Homeowners Who Are Ready to Hire
             </p>
-            <p className="text-[#242424] text-[14px] mb-8 leading-relaxed">
+            <p className="text-[#242424]  text-[14px] mb-8 leading-relaxed">
               NexaHome is not a lead-submission platform, it's a trusted network
               designed for high-quality experts and work opportunities — not
               noise. We match you with homeowners actively looking for services

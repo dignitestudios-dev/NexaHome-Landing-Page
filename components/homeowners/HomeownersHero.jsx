@@ -35,20 +35,26 @@ export default function HomeownersHero() {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           {/* Left */}
           <div>
-            <h1 className="section-title text-4xl md:text-5xl leading-tight mb-3">
+            <h1 className="section-title text-4xl font-[500] md:text-5xl leading-tight mb-3">
               Welcome to <span className="font-bold">NexaHome</span>
             </h1>
 
-            <p className="text-lg font-semibold text-gray-700 mb-3">
+            <p className="text-lg font-semibold capitalize text-gray-700 mb-3">
               Find Trusted Help for Your Home — Without the Stress
             </p>
 
             <p className="text-[#242424] text-sm mb-8 leading-relaxed">
               You did the hard part — you found the house. Now, let NexaHome
-              help you take care of it. Skip the stress of DIY gone wrong and
-              the "who do I call?" panic. We provide a hand-picked list of
-              vetted experts to support every project, repair, and routine
-              maintenance — so your home's next chapter starts with confidence.
+              help you take care of it. Skip the stress of{" "}
+              <span className="font-bold"> DIY gone wrong </span> and the{" "}
+              <span className="font-bold"> "who do I call?"</span> panic. We
+              provide a hand-picked list of vetted experts to support every
+              project, repair, and routine maintenance —{" "}
+              <span className="font-bold">
+                {" "}
+                so your home's next chapter starts with confidence
+              </span>
+              .
             </p>
 
             {/* Search Bar */}

@@ -5,7 +5,7 @@ export default function HomeownersAbout() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left */}
           <div>
-            <h2 className="section-title mb-4">
+            <h2 className="section-title font-[500] mb-4">
               About <span className="font-bold">NexaHome</span>
             </h2>
             <p className="text-[#242424] text-sm font-medium mb-4 leading-relaxed">

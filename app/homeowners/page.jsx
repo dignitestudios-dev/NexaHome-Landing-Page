@@ -20,7 +20,7 @@ export default function HomeownersPage() {
       <GetInspired />
       <WhyChooseNexaHome />
       <LouisianaBanner />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <HomeownersAbout />
       <HomeownersFAQ />
       <HomeownersWaitlist />

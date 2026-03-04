@@ -24,7 +24,7 @@ export default function HomeownersHowItWorks() {
     <section id="how-it-works" className="bg-white py-16 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="section-title">
+          <h2 className="section-title font-[500]">
             How <span className="font-bold">NexaHome</span> Works
           </h2>
           <p className="text-gray-500 mt-3">
@@ -53,10 +53,10 @@ export default function HomeownersHowItWorks() {
                 </div>
                 {/* Text overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-white font-bold text-sm mb-1">
+                  <h3 className="text-white font-bold text-[24px] mb-1">
                     {step.number}. {step.title}
                   </h3>
-                  <p className="text-white/80 text-xs leading-relaxed">
+                  <p className="text-white/80 text-[16px] leading-relaxed">
                     {step.desc}
                   </p>
                 </div>

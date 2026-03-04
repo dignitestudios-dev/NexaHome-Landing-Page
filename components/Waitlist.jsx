@@ -33,8 +33,8 @@ export default function Waitlist() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Form */}
           <div className="rounded-2xl p-8">
-            <h2 className="section-title mb-2">
-              Join The <span className="text-black font-bold">Waitlist</span>
+            <h2 className="section-title font-[500] mb-2">
+              Join The <span className="text-black font-[900]">Waitlist</span>
             </h2>
 
             <p className="text-[#242424] font-semibold text-sm mb-6">
