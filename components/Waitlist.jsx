@@ -6,8 +6,7 @@ import { User, Mail, Building2, Phone, Check } from "lucide-react";
 const benefits = [
   "Opportunity to be featured as a top-rated expert",
   "Special credits and incentives to grow your business",
-  "Early access to high-demand client requests on Nexa time",
-  "Exclusive promotional opportunities on elite platforms",
+  "Early access to high-demand client requests on NexaHome",
 ];
 
 export default function Waitlist() {

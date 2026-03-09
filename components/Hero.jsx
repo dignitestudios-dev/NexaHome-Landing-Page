@@ -25,10 +25,10 @@ export default function Hero() {
               Connect with Homeowners Who Are Ready to Hire
             </p>
             <p className="text-[#242424]  text-[14px] mb-8 leading-relaxed">
-              NexaHome is not a lead-submission platform, it's a trusted network
-              designed for high-quality experts and work opportunities — not
-              noise. We match you with homeowners actively looking for services
-              in your area and expertise.
+              NexaHome connects you with homeowners actively looking for the
+              services you provide. Get notified when new projects are posted in
+              your area, unlock the leads that interest you, and grow your
+              business with high-quality opportunities — not endless cold leads.
             </p>
 
             <p className="text-sm font-semibold text-gray-500  tracking-wider mb-4">
