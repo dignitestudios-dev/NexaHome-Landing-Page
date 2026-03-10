@@ -6,10 +6,19 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  console.log("pathname:", pathname);
   const links = [
     { label: "Home", href: "#home" },
     { label: "Features", href: "/homeowners#features" },
     { label: "How It Works", href: "/homeowners#how-it-works" },
+    { label: "About Us", href: "#about" },
+    { label: "Contact Us", href: "#waitlist" },
+  ];
+
+  const ExpertLinks = [
+    { label: "Home", href: "#home" },
+    { label: "Features", href: "#features" },
+    { label: "How It Works", href: "#how-it-works" },
     { label: "About Us", href: "#about" },
     { label: "Contact Us", href: "#waitlist" },
   ];
@@ -24,15 +33,27 @@ export default function Navbar() {
 
           {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-8">
-            {links.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-black hover:text-[#005864] font-semibold text-sm transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {pathname === "/homeowners" ? (
+              links.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-black hover:text-[#005864] font-semibold text-sm transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))
+            ) : (
+              ExpertLinks.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-black hover:text-[#005864] font-semibold text-sm transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ))
+            )}
           </div>
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
