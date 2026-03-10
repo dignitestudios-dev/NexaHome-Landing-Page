@@ -6,32 +6,42 @@ const faqs = [
   {
     question: "How does NexaHome work for Home Experts?",
     answer:
-      "NexaHome is a connection platform that puts you in front of homeowners actively seeking your services. Once you’re verified, you can browse matched job requests based on your services and location. You decide which opportunities to pursue, and when you accept a job, you’ll connect directly with the homeowner to discuss details, provide quotes, and manage the project on your own terms.",
+      "NexaHome connects you with homeowners who are actively looking to hire. When a new project matches your services and location, it appears on your dashboard and you’ll receive a notification by text or email.<br/><br/>If you're interested, you can use credits to unlock the homeowner’s contact information and reach out directly to discuss the job.<br/><br/>You decide which opportunities to pursue, giving you full control over the projects you take on.",
   },
   {
     question: "How do I become a verified NexaHome Expert?",
     answer:
-      "We use an automated identity verification process to maintain a high level of trust on the platform. To get started, you’ll be asked to provide a photo of your government-issued ID and a quick selfie for biometric verification. The process takes only a few minutes and allows us to securely confirm your identity so you can begin receiving job opportunities right away.",
+      "Create an account, complete your profile, and submit your business details for verification. Once approved, you’ll begin receiving project requests that match your services and location.<br/><br/>Verification helps maintain a trusted network of professionals for homeowners using NexaHome.",
   },
   {
-    question: "Is NexaHome a lead marketplace?",
+    question: "How does the NexaHome credit system work?",
     answer:
-      "Yes. NexaHome is a marketplace designed to connect experts with homeowners who need their services. While we verify the identity of experts on our platform, NexaHome does not manage, supervise, or take responsibility for the jobs performed. All project details, contracts, pricing, and communication take place directly between you and the homeowner. As the service provider, you are solely responsible and liable for the work you perform.",
+      "NexaHome uses a credit system to give you access to homeowner leads.<br/><br/>When you see a project you're interested in, you can use credits to unlock the homeowner’s contact information and reach out directly to discuss the job.<br/><br/>Credits are purchased in advance and used only when you decide to unlock a lead.",
   },
   {
-    question: "Does it cost anything to join NexaHome as a Home Expert?",
+    question: "How many credits does a lead cost?",
     answer:
-      "No. There is no subscription fee, and it’s completely free to join NexaHome. We operate on a pay-per-lead model, which means you only pay when you choose to purchase a specific job and connect with a homeowner. There are no monthly fees or hidden costs — you only pay for the opportunities you decide to pursue.",
+      "The number of credits required to unlock a lead depends on the type of project and service category.<br/><br/>Larger or more specialized projects may require more credits, while smaller jobs may require fewer.<br/><br/>The exact number of credits needed will always be shown before you unlock a lead so you can decide if the opportunity is right for you.",
   },
   {
-    question: "How do I get matched with jobs?",
+    question: "Do multiple professionals receive the same lead?",
     answer:
-      "Matching happens in real time. When a homeowner submits a request, they are shown a list of experts who match their needs and location. The homeowner can choose to notify specific experts or notify all matching experts. Once you’re notified, you can review the project details and decide whether to purchase the job to secure the connection.",
+      "Yes. A small number of qualified professionals may receive the same project so homeowners can compare options and choose the best fit.<br/><br/>NexaHome limits how many professionals can unlock each lead to help keep competition manageable.",
   },
   {
-    question: "How do homeowners contact me?",
+    question: "When do I pay NexaHome?",
     answer:
-      "Once you purchase a job, you’ll receive the homeowner’s contact information along with their preferred method of communication. You can then reach out directly to discuss project details, provide quotes, and schedule the work. All communication happens off the platform.",
+      "Credits are purchased in advance and used when you choose to unlock a homeowner’s contact information.<br/><br/>You decide which opportunities are worth pursuing and only use credits on the leads you want to contact.<br/><br/>You’ll always see the credit cost before unlocking a lead.",
+  },
+  {
+    question: "How do I get paid for the job?",
+    answer:
+      "NexaHome connects you with homeowners who need your services, but you handle the project agreement and payment directly with the homeowner.<br/><br/>This gives you full control over pricing, scheduling, and how you run your business.",
+  },
+  {
+    question: "Can I choose which projects I respond to?",
+    answer:
+      "Yes. You decide which leads to unlock and which opportunities to pursue.<br/><br/>You are not required to respond to every project request, allowing you to focus on the jobs that best fit your business.",
   },
 ];
 
