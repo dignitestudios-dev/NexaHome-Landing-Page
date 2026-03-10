@@ -6,42 +6,42 @@ const faqs = [
   {
     question: "How does NexaHome work for Home Experts?",
     answer:
-      "NexaHome connects you with homeowners who are actively looking to hire. When a new project matches your services and location, it appears on your dashboard and you’ll receive a notification by text or email.<br/><br/>If you're interested, you can use credits to unlock the homeowner’s contact information and reach out directly to discuss the job.<br/><br/>You decide which opportunities to pursue, giving you full control over the projects you take on.",
+      "NexaHome connects you with homeowners who are actively looking to hire. When a new project matches your services and location, it appears on your dashboard and you’ll receive a notification by text or email. If you're interested, you can use credits to unlock the homeowner’s contact information and reach out directly to discuss the job. You decide which opportunities to pursue, giving you full control over the projects you take on.",
   },
   {
     question: "How do I become a verified NexaHome Expert?",
     answer:
-      "Create an account, complete your profile, and submit your business details for verification. Once approved, you’ll begin receiving project requests that match your services and location.<br/><br/>Verification helps maintain a trusted network of professionals for homeowners using NexaHome.",
+      "Create an account, complete your profile, and submit your business details for verification. Once approved, you’ll begin receiving project requests that match your services and location. Verification helps maintain a trusted network of professionals for homeowners using NexaHome.",
   },
   {
     question: "How does the NexaHome credit system work?",
     answer:
-      "NexaHome uses a credit system to give you access to homeowner leads.<br/><br/>When you see a project you're interested in, you can use credits to unlock the homeowner’s contact information and reach out directly to discuss the job.<br/><br/>Credits are purchased in advance and used only when you decide to unlock a lead.",
+      "NexaHome uses a credit system to give you access to homeowner leads. When you see a project you're interested in, you can use credits to unlock the homeowner’s contact information and reach out directly to discuss the job. Credits are purchased in advance and used only when you decide to unlock a lead.",
   },
   {
     question: "How many credits does a lead cost?",
     answer:
-      "The number of credits required to unlock a lead depends on the type of project and service category.<br/><br/>Larger or more specialized projects may require more credits, while smaller jobs may require fewer.<br/><br/>The exact number of credits needed will always be shown before you unlock a lead so you can decide if the opportunity is right for you.",
+      "The number of credits required to unlock a lead depends on the type of project and service category. Larger or more specialized projects may require more credits, while smaller jobs may require fewer. The exact number of credits needed will always be shown before you unlock a lead so you can decide if the opportunity is right for you.",
   },
   {
     question: "Do multiple professionals receive the same lead?",
     answer:
-      "Yes. A small number of qualified professionals may receive the same project so homeowners can compare options and choose the best fit.<br/><br/>NexaHome limits how many professionals can unlock each lead to help keep competition manageable.",
+      "Yes. A small number of qualified professionals may receive the same project so homeowners can compare options and choose the best fit. NexaHome limits how many professionals can unlock each lead to help keep competition manageable.",
   },
   {
     question: "When do I pay NexaHome?",
     answer:
-      "Credits are purchased in advance and used when you choose to unlock a homeowner’s contact information.<br/><br/>You decide which opportunities are worth pursuing and only use credits on the leads you want to contact.<br/><br/>You’ll always see the credit cost before unlocking a lead.",
+      "Credits are purchased in advance and used when you choose to unlock a homeowner’s contact information. You decide which opportunities are worth pursuing and only use credits on the leads you want to contact. You’ll always see the credit cost before unlocking a lead.",
   },
   {
     question: "How do I get paid for the job?",
     answer:
-      "NexaHome connects you with homeowners who need your services, but you handle the project agreement and payment directly with the homeowner.<br/><br/>This gives you full control over pricing, scheduling, and how you run your business.",
+      "NexaHome connects you with homeowners who need your services, but you handle the project agreement and payment directly with the homeowner. This gives you full control over pricing, scheduling, and how you run your business.",
   },
   {
     question: "Can I choose which projects I respond to?",
     answer:
-      "Yes. You decide which leads to unlock and which opportunities to pursue.<br/><br/>You are not required to respond to every project request, allowing you to focus on the jobs that best fit your business.",
+      "Yes. You decide which leads to unlock and which opportunities to pursue. You are not required to respond to every project request, allowing you to focus on the jobs that best fit your business.",
   },
 ];
 
