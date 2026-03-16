@@ -12,16 +12,16 @@ export default function About() {
               Built On Trust. Designed For Simplicity.
             </p>
             <p className="text-[#242424] text-[14px] font-medium mb-4 leading-relaxed">
-              Homeowners spend a lot of time trying to find help for repairs,
-              improvements, seasonal work, and unexpected issues. Most
-              professionals find it even more challenging trying to find the
-              right customers. NexaHome was created to change that.
+              Homeowners often struggle to find reliable experts for repairs,
+              improvements, and ongoing home projects. At the same time, many
+              service providers spend too much time chasing leads that go
+              nowhere.
             </p>
             <p className="text-[#242424] text-[14px] font-medium leading-relaxed">
-              We believe finding reliable home help shouldn't feel like a
-              full-time job. Our mission is to remove barriers built on trust,
-              efficiency, and simplicity — for both homeowners and service
-              providers.
+              NexaHome was created to make that connection simpler. Our platform
+              connects qualified experts with homeowners who are actively
+              looking to hire — helping you discover real projects, connect
+              directly with customers, and focus on growing your business.
             </p>
           </div>
 

@@ -1,3 +1,8 @@
+"use client";
+
+import { useState } from "react";
+import ReactCardFlip from "react-card-flip";
+
 const benefits = [
   {
     image: "/one-image.png",
@@ -17,7 +22,22 @@ const benefits = [
   },
 ];
 
+function BenefitCardContent({ benefit }) {
+  return (
+    <div className="relative h-[375px] rounded-xl overflow-hidden shadow-md">
+      <img src={benefit.image} alt={benefit.title} className="w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
+        <p className="text-white font-semibold text-[18px] leading-snug">
+          {benefit.title}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function WhyPartner() {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   return (
     <section id="features" className="bg-gray-50 py-16 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,23 +45,23 @@ export default function WhyPartner() {
           Why Partner With <span className="font-bold">NexaHome</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {benefits.map((b) => (
+          {benefits.map((benefit) => (
             <div
-              key={b.title}
-              className="rounded-xl overflow-hidden shadow-md group"
+              key={benefit.title}
+              className="h-[375px]"
+              onMouseEnter={() => setHoveredCard(benefit.title)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
-              <div className="relative h-[375px] overflow-hidden">
-                <img
-                  src={b.image}
-                  alt={b.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-                  <p className="text-white font-semibold text-[18px] leading-snug">
-                    {b.title}
-                  </p>
-                </div>
-              </div>
+              <ReactCardFlip
+                isFlipped={hoveredCard === benefit.title}
+                flipDirection="horizontal"
+                flipSpeedFrontToBack={0.8}
+                flipSpeedBackToFront={0.8}
+                containerStyle={{ height: "100%" }}
+              >
+                <BenefitCardContent benefit={benefit} />
+                <BenefitCardContent benefit={benefit} />
+              </ReactCardFlip>
             </div>
           ))}
         </div>
