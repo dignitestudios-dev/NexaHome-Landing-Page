@@ -23,7 +23,7 @@ export default function HomeownersHowItWorks() {
   return (
     <section id="how-it-works" className="bg-white py-16 md:py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="section-title font-[500]">
             How <span className="font-bold">NexaHome</span> Works
           </h2>
@@ -33,10 +33,12 @@ export default function HomeownersHowItWorks() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {steps.map((step) => (
+          {steps.map((step, index) => (
             <div
               key={step.number}
               className="rounded-2xl overflow-hidden shadow-md group"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
             >
               <div className="relative h-[434px] overflow-hidden">
                 <img

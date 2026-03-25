@@ -34,7 +34,7 @@ export default function HomeownersHero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           {/* Left */}
-          <div>
+          <div data-aos="fade-up">
             <h1 className="section-title text-4xl font-[500] md:text-5xl leading-tight mb-3">
               Welcome to <span className="font-bold">NexaHome</span>
             </h1>
@@ -82,7 +82,7 @@ export default function HomeownersHero() {
           </div>
 
           {/* Right Image */}
-          <div className="relative">
+          <div className="relative" data-aos="fade-up" data-aos-delay="150">
             <img
               src="/home-owner.png"
               alt="Beautiful home"
@@ -92,7 +92,7 @@ export default function HomeownersHero() {
         </div>
 
         {/* Popular Services */}
-        <div className="mt-12 relative">
+        <div className="mt-12 relative" data-aos="fade-up" data-aos-delay="200">
           <p className="text-sm font-bold uppercase tracking-wider mb-6">
             Popular Home Services
           </p>
@@ -118,10 +118,12 @@ export default function HomeownersHero() {
             ref={scrollRef}
             className="flex scrollbar-hide gap-6 overflow-x-auto scroll-smooth"
           >
-            {serviceCategories.map((s) => (
+            {serviceCategories.map((s, index) => (
               <div
                 key={s.label}
                 className="min-w-[240px] rounded-2xl p-6 border border-gray-200 hover:shadow-md transition cursor-pointer"
+                data-aos="fade-up"
+                data-aos-delay={index * 75}
               >
                 <img src={s.icon} alt={s.label} className="w-10 h-10 mb-4" />
 

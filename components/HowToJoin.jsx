@@ -29,9 +29,9 @@ const steps = [
 
 export default function HowToJoin() {
   return (
-    <section  className="bg-gray-50 py-16 md:py-24">
+    <section id="how-it-works" className="bg-gray-50 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="section-title">
             How To <span className="text-primary">Join</span>
           </h2>
@@ -45,6 +45,8 @@ export default function HowToJoin() {
             <div
               key={step.title}
               className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative"
+              data-aos="fade-up"
+              data-aos-delay={i * 100}
             >
               <div className="absolute top-0 right-0 text-5xl font-bold text-gray-50 font-heading leading-none">
                 <img src={"/overlay-card.png"} className="w-28" alt="" srcset="" />
@@ -65,7 +67,7 @@ export default function HowToJoin() {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className="text-center" data-aos="fade-up">
           <Link
             href="#waitlist"
             className="bg-[#005864] text-white rounded-xl text-base px-8 py-4"

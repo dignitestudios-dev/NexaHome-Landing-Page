@@ -31,7 +31,7 @@ export default function Waitlist() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Form */}
-          <div className="rounded-2xl p-8">
+          <div className="rounded-2xl p-8" data-aos="fade-up">
             <h2 className="section-title font-[500] mb-2">
               Join The <span className="text-black font-[900]">Waitlist</span>
             </h2>
@@ -137,7 +137,7 @@ export default function Waitlist() {
             )}
           </div>
           {/* Benefits */}
-          <div className="pt-4  bg-white rounded-2xl p-8 shadow-lg">
+          <div className="pt-4  bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="150">
             <h3 className="text-2xl font-bold font-heading text-gray-900 mb-6">
               What You'll Get
             </h3>

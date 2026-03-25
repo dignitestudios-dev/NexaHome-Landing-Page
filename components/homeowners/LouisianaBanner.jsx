@@ -1,7 +1,10 @@
 export default function LouisianaBanner() {
   return (
     <section className=" ">
-      <div className="max-w-7xl py-10 rounded-[16px] bg-[#005864] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div
+        className="max-w-7xl py-10 rounded-[16px] bg-[#005864] mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        data-aos="fade-up"
+      >
         <h2 className="text-2xl md:text-3xl capitalize font-heading font-bold text-white mb-3">
           Serving homeowners across Louisiana
         </h2>

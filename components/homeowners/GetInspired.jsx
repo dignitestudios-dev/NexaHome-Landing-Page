@@ -27,9 +27,9 @@ const inspirations = [
 
 export default function GetInspired() {
   return (
-    <section id="features" className="bg-white py-16 md:py-20">
+    <section className="bg-white py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10">
+        <div className="mb-10" data-aos="fade-up">
           <h2 className=" md:text-5xl text-5xl font-medium text-gray-900 mb-2">
             Get <span className="font-extrabold"> Inspired</span>
           </h2>
@@ -39,10 +39,12 @@ export default function GetInspired() {
         </div>
 
         <div className="grid grid-cols-2 gap-10">
-          {inspirations.map((item) => (
+          {inspirations.map((item, index) => (
             <div
               key={item.label}
               className={`${item.span} rounded-2xl  group cursor-pointer`}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
             >
               <div className={`relative ${item.height} rounded-2xl overflow-hidden`}>
                 <img

@@ -1,8 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import ReactCardFlip from "react-card-flip";
-
 const benefits = [
   {
     image: "/one-image.png",
@@ -36,32 +33,16 @@ function BenefitCardContent({ benefit }) {
 }
 
 export default function WhyPartner() {
-  const [hoveredCard, setHoveredCard] = useState(null);
-
   return (
     <section id="features" className="bg-gray-50 py-16 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="section-title text-center font-[500] mb-12">
+        <h2 className="section-title text-center font-[500] mb-12" data-aos="fade-up">
           Why Partner With <span className="font-bold">NexaHome</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {benefits.map((benefit) => (
-            <div
-              key={benefit.title}
-              className="h-[375px]"
-              onMouseEnter={() => setHoveredCard(benefit.title)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <ReactCardFlip
-                isFlipped={hoveredCard === benefit.title}
-                flipDirection="horizontal"
-                flipSpeedFrontToBack={0.8}
-                flipSpeedBackToFront={0.8}
-                containerStyle={{ height: "100%" }}
-              >
-                <BenefitCardContent benefit={benefit} />
-                <BenefitCardContent benefit={benefit} />
-              </ReactCardFlip>
+          {benefits.map((benefit, i) => (
+            <div key={benefit.title} className="h-[375px]" data-aos="fade-up" data-aos-delay={i * 100}>
+              <BenefitCardContent benefit={benefit} />
             </div>
           ))}
         </div>

@@ -10,7 +10,7 @@ export default function CtaBanner() {
           />
           <div className="absolute rounded-[14px] inset-0 bg-black/60"></div>
         </div>
-        <div className="relative ml-auto max-w-md z-40">
+        <div className="relative ml-auto max-w-md z-40" data-aos="fade-up">
           <p className="text-white  text-sm uppercase tracking-widest mb-2">
             Launching Soon
           </p>

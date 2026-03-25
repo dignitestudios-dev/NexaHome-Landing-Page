@@ -1,4 +1,5 @@
 import "./globals.css";
+import AosInit from "../components/AosInit";
 
 export const metadata = {
   title: "NexaHome — Connect with Homeowners Ready to Hire",
@@ -12,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body><AosInit />{children}</body>
     </html>
   );
 }

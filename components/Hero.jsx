@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div>
+          <div data-aos="fade-up">
             <h1 className="section-title capitalize font-[500] text-4xl md:text-5xl leading-tight mb-4">
               Welcome to <span className="font-bold">NexaHome</span>
             </h1>
@@ -50,7 +50,11 @@ export default function Hero() {
           </div>
 
           {/* Right Image */}
-          <div className="rounded-2xl overflow-hidden ">
+          <div
+            className="rounded-2xl overflow-hidden "
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
             <img
               src="/hero-container.png"
               alt="Home improvement experts"

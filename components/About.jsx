@@ -4,7 +4,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div>
+          <div data-aos="fade-up">
             <h2 className="section-title font-[500] mb-4">
               About <span className="font-bold">NexaHome</span>
             </h2>
@@ -27,7 +27,7 @@ export default function About() {
 
           {/* Right - Dashboard Mockup */}
           {/* Right - Laptop Image */}
-          <div className="relative">
+          <div className="relative" data-aos="fade-up" data-aos-delay="150">
             <div className="rounded-2xl overflow-hidden">
               <img
                 src="/Laptop.png"

@@ -69,7 +69,7 @@ export default function HomeownersFAQ() {
   return (
     <section className="bg-white py-16 md:py-24">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="section-title font-[500]">
             Frequently Asked <span className="font-bold">Questions</span>
           </h2>
@@ -77,7 +77,7 @@ export default function HomeownersFAQ() {
             Everything you need to know about using NexaHome
           </p>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-3" data-aos="fade-up" data-aos-delay="100">
           {faqs.map((faq) => (
             <FAQItem key={faq.question} {...faq} />
           ))}

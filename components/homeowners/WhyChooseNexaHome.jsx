@@ -33,9 +33,9 @@ const features = [
 
 export default function WhyChooseNexaHome() {
   return (
-    <section className="bg-gray-50 py-16 md:py-24">
+    <section className="bg-gray-50 py-16 md:py-24" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="fade-up">
           <h2 className="section-title">
             Why Choose <span className="font-bold">NexaHome</span>
           </h2>
@@ -45,10 +45,12 @@ export default function WhyChooseNexaHome() {
         </div>
 
         <div className="grid relative grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((f) => (
+          {features.map((f, index) => (
             <div
               key={f.title}
               className="relative why-choose-card p-6 hover:shadow-md transition-shadow"
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
             >
               <div className="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center text-primary mb-4">
                 {f.icon}

@@ -8,7 +8,7 @@ export default function HomeOwnerCtaBanner() {
         {/* Content Wrapper */}
         <div className="relative flex flex-col lg:flex-row items-center justify-between px-6 sm:px-12 lg:px-16 py-16 lg:py-24 gap-12">
           {/* Left Content */}
-          <div className="text-center lg:text-left max-w-xl text-white">
+          <div className="text-center lg:text-left max-w-xl text-white" data-aos="fade-up">
             <p className="font-semibold text-sm sm:text-base mb-3">
               Launching Soon
             </p>
@@ -68,7 +68,11 @@ export default function HomeOwnerCtaBanner() {
           </div>
 
           {/* Phone Mockup */}
-          <div className="w-full relative top-0 max-w-xs sm:max-w-sm lg:max-w-md">
+          <div
+            className="w-full relative top-0 max-w-xs sm:max-w-sm lg:max-w-md"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
             <img
               src="/phone-mockup.png"
               alt="Phone Mockup"

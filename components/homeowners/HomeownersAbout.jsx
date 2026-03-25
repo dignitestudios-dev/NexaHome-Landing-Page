@@ -4,7 +4,7 @@ export default function HomeownersAbout() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left */}
-          <div>
+          <div data-aos="fade-up">
             <h2 className="section-title font-[500] mb-4">
               About <span className="font-bold">NexaHome</span>
             </h2>
@@ -28,7 +28,11 @@ export default function HomeownersAbout() {
           </div>
 
           {/* Right Image */}
-          <div className="relative rounded-2xl overflow-hidden shadow-xl">
+          <div
+            className="relative rounded-2xl overflow-hidden shadow-xl"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
             <img
               src="/about-nexa.png"
               alt="Pool cleaning expert"
