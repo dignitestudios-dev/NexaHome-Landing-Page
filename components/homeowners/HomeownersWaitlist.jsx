@@ -126,7 +126,7 @@ export default function HomeownersWaitlist() {
                   <div className="bg-[#0058641A] p-2 rounded-full flex-shrink-0">
                     <div className="w-2 h-2 bg-[#005864] rounded-full" />
                   </div>
-                  <span className="text-gray-700 leading-relaxed text-sm">
+                  <span className="text-gray-700 leading-relaxed">
                     {b}
                   </span>
                 </li>
