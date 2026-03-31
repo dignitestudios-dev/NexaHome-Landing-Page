@@ -3,10 +3,9 @@ import { useState } from "react";
 import { User, Mail, Phone, Check } from "lucide-react";
 
 const benefits = [
-  "Early access to the NexaHome platform.",
-  "Instant connections to experts who actually call you back.",
-  "First pick of our highest-rated, trusted experts.",
-  "Total confidence that every job is handled by an expert.",
+  "Access to trusted experts ready to help",
+  "Faster progress on your projects",
+  "Priority access at launch",
 ];
 
 export default function HomeownersWaitlist() {
