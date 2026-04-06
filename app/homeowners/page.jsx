@@ -11,6 +11,23 @@ import HomeownersFAQ from "../../components/homeowners/HomeownersFAQ";
 import HomeownersWaitlist from "../../components/homeowners/HomeownersWaitlist";
 import HomeOwnerCtaBanner from "../../components/homeowners/CtaBanner";
 
+export const metadata = {
+  openGraph: {
+    images: [
+      {
+        url: "/home-owner.png",
+        width: 1200,
+        height: 630,
+        alt: "Family in front of their new home",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/home-owner.png"],
+  },
+};
+
 export default function HomeownersPage() {
   return (
     <main>
