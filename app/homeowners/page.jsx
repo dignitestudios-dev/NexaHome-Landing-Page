@@ -11,11 +11,13 @@ import HomeownersFAQ from "../../components/homeowners/HomeownersFAQ";
 import HomeownersWaitlist from "../../components/homeowners/HomeownersWaitlist";
 import HomeOwnerCtaBanner from "../../components/homeowners/CtaBanner";
 
+const homeownersShareImageUrl = "https://nexahomeapp.com/home-owner.png";
+
 export const metadata = {
   openGraph: {
     images: [
       {
-        url: "/home-owner.png",
+        url: homeownersShareImageUrl,
         width: 1200,
         height: 630,
         alt: "Family in front of their new home",
@@ -24,7 +26,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/home-owner.png"],
+    images: [homeownersShareImageUrl],
   },
 };
 

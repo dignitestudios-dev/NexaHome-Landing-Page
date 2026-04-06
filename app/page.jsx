@@ -8,11 +8,13 @@ import Waitlist from "../components/Waitlist";
 import CtaBanner from "../components/CtaBanner";
 import Footer from "../components/Footer";
 
+const homeShareImageUrl = "https://nexahomeapp.com/hero-container.png";
+
 export const metadata = {
   openGraph: {
     images: [
       {
-        url: "/hero-container.png",
+        url: homeShareImageUrl,
         width: 1200,
         height: 630,
         alt: "NexaHome professionals helping homeowners",
@@ -21,7 +23,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/hero-container.png"],
+    images: [homeShareImageUrl],
   },
 };
 
