@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-white text-black">
       <div className="max-w-7xl mx-auto  py-10">
@@ -37,7 +41,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           {/* Left Side */}
           <div className="text-sm text-black">
-            <p>Copyright © 2025 NexaHome.</p>
+            <p>Copyright © {currentYear} NexaHome.</p>
             <p>All rights reserved.</p>
           </div>
 
@@ -52,7 +56,7 @@ export default function Footer() {
                 Privacy Policy
               </Link>
             </div>
-            <p className="text-black/70">Support@NexaHome.com</p>
+            <Link href="mailto:info@nexahomeapp.com" className="text-black/70">info@nexahomeapp.com</Link>
           </div>
         </div>
       </div>
