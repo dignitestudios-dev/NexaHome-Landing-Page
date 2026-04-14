@@ -1,13 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { User, Mail, Building2, Phone, Check } from "lucide-react";
+import { User, Mail, Building2, Phone, Check, Loader2 } from "lucide-react";
 
 const benefits = [
   "Visibility as a trusted expert on the platform",
   "Real job requests — not cold leads",
   "Access to exclusive launch incentives",
 ];
+
+function formatUSPhone(value) {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+  if (digits.length === 0) return "";
+  if (digits.length <= 3) return `(${digits}`;
+  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
 
 export default function Waitlist() {
   const [form, setForm] = useState({
@@ -17,13 +25,44 @@ export default function Waitlist() {
     phone: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "phone") {
+      setForm({ ...form, phone: formatUSPhone(value) });
+    } else {
+      setForm({ ...form, [name]: value });
+    }
+    if (error) setError("");
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, userType: "expert" }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -56,6 +95,12 @@ export default function Waitlist() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3">
+                    {error}
+                  </div>
+                )}
+
                 {[
                   {
                     name: "name",
@@ -81,7 +126,7 @@ export default function Waitlist() {
                   {
                     name: "phone",
                     label: "Phone Number",
-                    placeholder: "+1 (555) 000-0000",
+                    placeholder: "(555) 000-0000",
                     type: "tel",
                     icon: Phone,
                   },
@@ -105,10 +150,11 @@ export default function Waitlist() {
                           value={form[field.name]}
                           onChange={handleChange}
                           placeholder={field.placeholder}
+                          disabled={loading}
                           required={
                             field.name === "name" || field.name === "email"
                           }
-                          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
                         />
                       </div>
                     </div>
@@ -117,9 +163,17 @@ export default function Waitlist() {
 
                 <button
                   type="submit"
-                  className="w-full bg-[#005864] rounded-lg text-white py-4 text-base mt-2"
+                  disabled={loading}
+                  className="w-full bg-[#005864] rounded-lg text-white py-4 text-base mt-2 hover:bg-[#004a54] transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Join Waitlist →
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Submitting...
+                    </>
+                  ) : (
+                    "Join Waitlist →"
+                  )}
                 </button>
 
                 <p className="text-xs text-gray-400 text-center">
