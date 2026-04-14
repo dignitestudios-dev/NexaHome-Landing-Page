@@ -131,7 +131,7 @@ export default function HomeownersHero() {
                   {s.label}
                 </p>
 
-                <p className="text-sm text-gray-500 mt-1">{s.count}</p>
+                {/* <p className="text-sm text-gray-500 mt-1">{s.count}</p> */}
               </div>
             ))}
           </div>
