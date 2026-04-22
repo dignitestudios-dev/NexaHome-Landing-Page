@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { User, Mail, Phone, Check, Loader2 } from "lucide-react";
+import { User, Mail, Phone, Check, Loader2, X } from "lucide-react";
 
 const benefits = [
   "Access to trusted experts ready to help",
@@ -18,9 +18,20 @@ function formatUSPhone(value) {
 
 export default function HomeownersWaitlist() {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const openSuccessModal = () => {
+    setShowSuccessModal(true);
+    requestAnimationFrame(() => setIsSuccessModalOpen(true));
+  };
+
+  const closeSuccessModal = () => {
+    setIsSuccessModalOpen(false);
+    setTimeout(() => setShowSuccessModal(false), 220);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +62,8 @@ export default function HomeownersWaitlist() {
         return;
       }
 
-      setSubmitted(true);
+      setForm({ name: "", email: "", phone: "" });
+      openSuccessModal();
     } catch {
       setError("Network error. Please check your connection and try again.");
     } finally {
@@ -72,98 +84,84 @@ export default function HomeownersWaitlist() {
               Be Among The First To Experience The Future Of Home Improvement
             </p>
 
-            {submitted ? (
-              <div className="text-center py-8">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-8 h-8 text-primary" />
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {error && (
+                <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3">
+                  {error}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  You're on the list!
-                </h3>
-                <p className="text-gray-500">
-                  We'll be in touch soon with your early access details.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {error && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3">
-                    {error}
-                  </div>
-                )}
+              )}
 
-                {[
-                  {
-                    name: "name",
-                    label: "Full Name",
-                    placeholder: "John Doe",
-                    type: "text",
-                    icon: User,
-                  },
-                  {
-                    name: "email",
-                    label: "Email Address",
-                    placeholder: "john@example.com",
-                    type: "email",
-                    icon: Mail,
-                  },
-                  {
-                    name: "phone",
-                    label: "Phone Number",
-                    placeholder: "(555) 123-4567",
-                    type: "tel",
-                    icon: Phone,
-                  },
-                ].map((field) => {
-                  const Icon = field.icon;
-                  return (
-                    <div key={field.name}>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {field.label}
-                      </label>
-                      <div className="relative">
-                        <Icon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
-                        <input
-                          type={field.type}
-                          name={field.name}
-                          value={form[field.name]}
-                          onChange={handleChange}
-                          placeholder={field.placeholder}
-                          disabled={loading}
-                          required={field.name !== "phone"}
-                          className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
-                        />
-                      </div>
+              {[
+                {
+                  name: "name",
+                  label: "Full Name",
+                  placeholder: "John Doe",
+                  type: "text",
+                  icon: User,
+                },
+                {
+                  name: "email",
+                  label: "Email Address",
+                  placeholder: "john@example.com",
+                  type: "email",
+                  icon: Mail,
+                },
+                {
+                  name: "phone",
+                  label: "Phone Number",
+                  placeholder: "(555) 123-4567",
+                  type: "tel",
+                  icon: Phone,
+                },
+              ].map((field) => {
+                const Icon = field.icon;
+                return (
+                  <div key={field.name}>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      {field.label}
+                    </label>
+                    <div className="relative">
+                      <Icon className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      <input
+                        type={field.type}
+                        name={field.name}
+                        value={form[field.name]}
+                        onChange={handleChange}
+                        placeholder={field.placeholder}
+                        disabled={loading}
+                        required={field.name !== "phone"}
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+                      />
                     </div>
-                  );
-                })}
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-[#005864] rounded-lg text-white py-4 text-base mt-2 hover:bg-[#004a54] transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      Submitting...
-                    </>
-                  ) : (
-                    "Join Waitlist →"
-                  )}
-                </button>
-                <p className="text-xs text-gray-400 text-center">
-                  By joining, you agree to our{" "}
-                  <a href="#" className="underline">
-                    Terms of Service
-                  </a>{" "}
-                  and{" "}
-                  <a href="#" className="underline">
-                    Privacy Policy
-                  </a>
-                  .
-                </p>
-              </form>
-            )}
+                  </div>
+                );
+              })}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-[#005864] rounded-lg text-white py-4 text-base mt-2 hover:bg-[#004a54] transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  "Join Waitlist →"
+                )}
+              </button>
+              <p className="text-xs text-gray-400 text-center">
+                By joining, you agree to our{" "}
+                <a href="#" className="underline">
+                  Terms of Service
+                </a>{" "}
+                and{" "}
+                <a href="#" className="underline">
+                  Privacy Policy
+                </a>
+                .
+              </p>
+            </form>
           </div>
 
           {/* Benefits */}
@@ -190,6 +188,39 @@ export default function HomeownersWaitlist() {
           </div>
         </div>
       </div>
+
+      {showSuccessModal && (
+        <div
+          className={`fixed inset-0 z-50 flex items-center justify-center px-4 transition-all duration-200 ${
+            isSuccessModalOpen ? "bg-black/45 opacity-100" : "bg-black/0 opacity-0"
+          }`}
+          onClick={closeSuccessModal}
+        >
+          <div
+            className={`relative w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl transition-all duration-200 ${
+              isSuccessModalOpen ? "translate-y-0 scale-100 opacity-100" : "translate-y-3 scale-95 opacity-0"
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={closeSuccessModal}
+              className="absolute right-4 top-4 rounded-full p-1 text-gray-400 transition-colors hover:bg-gray-100 hover:text-gray-600"
+              aria-label="Close dialog"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <div className="text-center">
+              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#0058641A]">
+                <Check className="h-8 w-8 text-[#005864]" />
+              </div>
+              <h3 className="mb-2 text-xl font-bold text-gray-900">You're on the list!</h3>
+              <p className="text-gray-500">We'll be in touch soon with your early access details.</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
