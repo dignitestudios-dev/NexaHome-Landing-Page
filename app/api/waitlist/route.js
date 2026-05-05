@@ -2,8 +2,26 @@ import sgMail from "@sendgrid/mail";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-function buildEmailHtml({ name, email, phone, company, userType }) {
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function getFirstName(name) {
+  const [firstName] = name.trim().split(/\s+/);
+  return firstName || "there";
+}
+
+function buildAdminEmailHtml({ name, email, phone, company, userType }) {
   const isExpert = userType === "expert";
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeCompany = company ? escapeHtml(company) : "";
+  const safePhone = phone ? escapeHtml(phone) : "";
   const roleBadge = isExpert ? "Home Service Expert" : "Homeowner";
   const roleBgColor = isExpert ? "#005864" : "#F5A623";
   const roleTextColor = isExpert ? "#ffffff" : "#1a1a1a";
@@ -14,14 +32,14 @@ function buildEmailHtml({ name, email, phone, company, userType }) {
   const companyRow = company
     ? `<tr>
         <td style="padding:12px 16px;font-size:14px;color:#6b7280;border-bottom:1px solid #f3f4f6;width:140px;">Company</td>
-        <td style="padding:12px 16px;font-size:14px;color:#111827;border-bottom:1px solid #f3f4f6;font-weight:600;">${company}</td>
+        <td style="padding:12px 16px;font-size:14px;color:#111827;border-bottom:1px solid #f3f4f6;font-weight:600;">${safeCompany}</td>
       </tr>`
     : "";
 
   const phoneRow = phone
     ? `<tr>
         <td style="padding:12px 16px;font-size:14px;color:#6b7280;border-bottom:1px solid #f3f4f6;width:140px;">Phone</td>
-        <td style="padding:12px 16px;font-size:14px;color:#111827;border-bottom:1px solid #f3f4f6;font-weight:600;">${phone}</td>
+        <td style="padding:12px 16px;font-size:14px;color:#111827;border-bottom:1px solid #f3f4f6;font-weight:600;">${safePhone}</td>
       </tr>`
     : "";
 
@@ -65,12 +83,12 @@ function buildEmailHtml({ name, email, phone, company, userType }) {
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f9fafb;border-radius:12px;border:1px solid #e5e7eb;overflow:hidden;">
                 <tr>
                   <td style="padding:12px 16px;font-size:14px;color:#6b7280;border-bottom:1px solid #f3f4f6;width:140px;">Name</td>
-                  <td style="padding:12px 16px;font-size:14px;color:#111827;border-bottom:1px solid #f3f4f6;font-weight:600;">${name}</td>
+                  <td style="padding:12px 16px;font-size:14px;color:#111827;border-bottom:1px solid #f3f4f6;font-weight:600;">${safeName}</td>
                 </tr>
                 <tr>
                   <td style="padding:12px 16px;font-size:14px;color:#6b7280;border-bottom:1px solid #f3f4f6;width:140px;">Email</td>
                   <td style="padding:12px 16px;font-size:14px;color:#111827;border-bottom:1px solid #f3f4f6;font-weight:600;">
-                    <a href="mailto:${email}" style="color:#005864;text-decoration:none;">${email}</a>
+                    <a href="mailto:${safeEmail}" style="color:#005864;text-decoration:none;">${safeEmail}</a>
                   </td>
                 </tr>
                 ${companyRow}
@@ -108,12 +126,86 @@ function buildEmailHtml({ name, email, phone, company, userType }) {
 </html>`;
 }
 
+function buildUserConfirmationEmail({ name, userType }) {
+  const isExpert = userType === "expert";
+  const firstName = getFirstName(name);
+  const safeFirstName = escapeHtml(firstName);
+  const subject = isExpert
+    ? "You're on the NexaHome expert list!"
+    : "You're on the NexaHome waitlist!";
+  const secondParagraph = isExpert
+    ? "Thanks for signing up! You're on the list — we'll reach out as soon as we're ready to bring you on board."
+    : "Thanks for signing up! You're on the list — we'll reach out as soon as we're ready to welcome you in.";
+  const thirdParagraph = isExpert
+    ? "With NexaHome you'll be able to browse real jobs, choose the leads you want, and get discovered by homeowners and businesses in your area."
+    : "With NexaHome you'll be able to find trusted local experts, browse services, and get the help your home needs — all in one place.";
+
+  return {
+    subject,
+    text: `Hi ${firstName},
+
+${secondParagraph}
+
+${thirdParagraph}
+
+Stay tuned.
+
+- The NexaHome Team`,
+    html: `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1.0" /></head>
+<body style="margin:0;padding:0;background-color:#f3f4f6;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f3f4f6;padding:40px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
+          <tr>
+            <td style="background:linear-gradient(135deg,#005864 0%,#03717f 100%);padding:32px 40px;text-align:center;">
+              <h1 style="margin:0;font-size:28px;font-weight:700;color:#ffffff;letter-spacing:-0.5px;">NexaHome</h1>
+              <p style="margin:8px 0 0;font-size:14px;color:rgba(255,255,255,0.8);font-weight:400;">Waitlist Confirmation</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:32px 40px 12px;">
+              <p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#111827;">Hi ${safeFirstName},</p>
+              <p style="margin:0 0 18px;font-size:15px;line-height:1.75;color:#4b5563;">${escapeHtml(secondParagraph)}</p>
+              <p style="margin:0 0 18px;font-size:15px;line-height:1.75;color:#4b5563;">${escapeHtml(thirdParagraph)}</p>
+              <p style="margin:0;font-size:15px;line-height:1.75;color:#4b5563;">Stay tuned.</p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 40px;">
+              <div style="height:1px;background-color:#e5e7eb;"></div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:20px 40px 28px;">
+              <p style="margin:0;font-size:15px;line-height:1.6;color:#111827;">- The NexaHome Team</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`,
+  };
+}
+
 export async function POST(request) {
   try {
     const body = await request.json();
     const { name, email, phone, company, userType } = body;
+    const normalizedName = typeof name === "string" ? name.trim() : "";
+    const normalizedEmail =
+      typeof email === "string" ? email.trim().toLowerCase() : "";
+    const normalizedPhone = typeof phone === "string" ? phone.trim() : "";
+    const normalizedCompany =
+      typeof company === "string" ? company.trim() : "";
+    const normalizedUserType =
+      typeof userType === "string" ? userType.trim().toLowerCase() : "";
 
-    if (!name || !email || !userType) {
+    if (!normalizedName || !normalizedEmail || !normalizedUserType) {
       return Response.json(
         { error: "Name, email, and user type are required." },
         { status: 400 }
@@ -121,36 +213,60 @@ export async function POST(request) {
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(normalizedEmail)) {
       return Response.json(
         { error: "Please provide a valid email address." },
         { status: 400 }
       );
     }
 
-    if (!["expert", "homeowner"].includes(userType)) {
+    if (!["expert", "homeowner"].includes(normalizedUserType)) {
       return Response.json(
         { error: "Invalid user type." },
         { status: 400 }
       );
     }
 
-    const isExpert = userType === "expert";
+    const isExpert = normalizedUserType === "expert";
     const subjectLine = isExpert
-      ? `New Expert Waitlist Signup — ${name}`
-      : `New Homeowner Waitlist Signup — ${name}`;
+      ? `New Expert Waitlist Signup — ${normalizedName}`
+      : `New Homeowner Waitlist Signup — ${normalizedName}`;
 
-    const msg = {
+    const adminMsg = {
       to: "info@nexahomeapp.com",
       from: {
         email: "no-reply@nexahomeapp.com",
         name: "NexaHome Waitlist",
       },
       subject: subjectLine,
-      html: buildEmailHtml({ name, email, phone, company, userType }),
+      html: buildAdminEmailHtml({
+        name: normalizedName,
+        email: normalizedEmail,
+        phone: normalizedPhone,
+        company: normalizedCompany,
+        userType: normalizedUserType,
+      }),
     };
 
-    await sgMail.send(msg);
+    const confirmationEmail = buildUserConfirmationEmail({
+      name: normalizedName,
+      userType: normalizedUserType,
+    });
+
+    console.log("normalizedEmail: ", normalizedEmail)
+
+    const userMsg = {
+      to: normalizedEmail,
+      from: {
+        email: "no-reply@nexahomeapp.com",
+        name: "NexaHome Team",
+      },
+      subject: confirmationEmail.subject,
+      text: confirmationEmail.text,
+      html: confirmationEmail.html,
+    };
+
+    await Promise.all([sgMail.send(adminMsg), sgMail.send(userMsg)]);
 
     return Response.json(
       { message: "Successfully joined the waitlist!" },
