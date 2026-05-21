@@ -48,11 +48,11 @@ export default function Footer() {
           {/* Right Side */}
           <div className="flex flex-col md:items-end text-sm gap-2">
             <div className="flex gap-2">
-              <Link href="#" className="hover:underline">
+              <Link href="/terms-and-conditions" className="hover:underline">
                 Terms & Conditions
               </Link>
               <span>/</span>
-              <Link href="#" className="hover:underline">
+              <Link href="/privacy-policy" className="hover:underline">
                 Privacy Policy
               </Link>
             </div>
