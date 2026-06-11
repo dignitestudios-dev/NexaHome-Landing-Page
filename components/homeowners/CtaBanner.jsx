@@ -18,7 +18,7 @@ export default function HomeOwnerCtaBanner() {
             </h2>
 
             <p className="text-sm sm:text-base mb-10">
-              Download our app and get instant access to thousands of trusted
+              Download our app and get instant access to trusted
               home care experts in your neighborhood.
             </p>
 
