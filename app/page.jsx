@@ -11,6 +11,8 @@ import Footer from "../components/Footer";
 const homeShareImageUrl = "https://nexahomeapp.com/hero-container.png";
 
 export const metadata = {
+  title: "Get Home Service Leads in Baton Rouge | NexaHome for Experts",
+  description: "Join NexaHome and connect with Baton Rouge homeowners actively looking to hire. Unlock the leads you want. Free to join.",
   openGraph: {
     images: [
       {

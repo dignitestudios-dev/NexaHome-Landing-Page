@@ -14,6 +14,8 @@ import HomeOwnerCtaBanner from "../../components/homeowners/CtaBanner";
 const homeownersShareImageUrl = "https://nexahomeapp.com/home-owner.png";
 
 export const metadata = {
+  title: "Find Trusted Home Service Experts in Baton Rouge | NexaHome",
+  description: "NexaHome connects Baton Rouge homeowners with local, identity-verified service experts. Post your job free and connect with experts ready to help.",
   openGraph: {
     images: [
       {
