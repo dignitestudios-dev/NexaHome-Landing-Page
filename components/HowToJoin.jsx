@@ -23,7 +23,7 @@ const steps = [
     number: "04",
     icon: <img src="/step-4.png" alt="Start Connecting" />,
     title: "Start Connecting",
-    desc: "Begin receiving project requests from homeowners.",
+    desc: "Browse available jobs in your area and unlock the leads you want to pursue.",
   },
 ];
 

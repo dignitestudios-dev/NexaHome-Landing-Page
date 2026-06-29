@@ -3,7 +3,7 @@
 const benefits = [
   {
     image: "/one-image.png",
-    title: "Reach homeowners ready to book",
+    title: "Reach homeowners actively looking to hire",
   },
   {
     image: "/two-image.png",

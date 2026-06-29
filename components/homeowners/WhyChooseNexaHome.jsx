@@ -1,33 +1,33 @@
 const features = [
   {
     icon: <img src="choose1.png" alt="" srcset="" />,
-    title: "Verified Experts",
-    desc: "Every expert is thoroughly vetted with background checks and verification.",
+    title: "Identity-Verified Experts",
+    desc: "Every expert completes identity verification before joining, so you're connecting with real, vetted individuals.",
   },
   {
     icon: <img src="choose2.png" alt="" srcset="" />,
-    title: "Instant Matching",
-    desc: "Get matched with qualified experts in minutes, not days.",
+    title: "Local Experts Near You",
+    desc: "Connect with experts who serve your Baton Rouge neighborhood.",
   },
   {
     icon: <img src="choose3.png" alt="" srcset="" />,
-    title: "Top-Rated Service",
-    desc: "Read verified reviews from real homeowners just like you.",
+    title: "Your Privacy Protected",
+    desc: "Your contact details stay private until you choose to connect.",
   },
   {
     icon: <img src="choose4.png" alt="" srcset="" />,
-    title: "Save Time & Money",
-    desc: "Compare multiple quotes and book services all in one place.",
+    title: "One Request, Multiple Experts",
+    desc: "Post once and reach several local experts at the same time — no calling around.",
   },
   {
     icon: <img src="choose5.png" alt="" srcset="" />,
-    title: "Work You Can Rely On",
-    desc: "Quality-focused experts delivering dependable results.",
+    title: "You're in Control",
+    desc: "You choose which experts to contact and who to hire. No pressure, no obligation.",
   },
   {
     icon: <img src="choose6.png" alt="" srcset="" />,
-    title: "Transparent Pricing",
-    desc: "No platform fees — Use the platform at no cost.",
+    title: "Always Free for Homeowners",
+    desc: "No platform fees. NexaHome is completely free to use.",
   },
 ];
 

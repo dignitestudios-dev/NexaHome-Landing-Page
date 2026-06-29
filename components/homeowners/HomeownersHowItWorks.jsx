@@ -7,14 +7,14 @@ const steps = [
   },
   {
     number: "2",
-    title: "Get Matched Instantly",
-    desc: "We review your request and connect you with a curated list of qualified, vetted Home Experts who serve your area.",
+    title: "Reach Local Experts",
+    desc: "Pick up to 5 verified experts who serve your area, or send your request to all of them.",
     image: "/card-2.png",
   },
   {
     number: "3",
     title: "Start the Job With Confidence",
-    desc: "Your chosen expert reaches out directly to confirm details and schedule the work.",
+    desc: "Experts reach out directly to confirm details and schedule the work.",
     image: "/card-3.png",
   },
 ];

@@ -17,7 +17,7 @@ export default function HomeownersAbout() {
             <p className="text-[#242424] text-sm font-medium mb-4 leading-relaxed">
               Our mission is to empower homeowners with the confidence to make
               their house a home. By providing access to a network of trusted,
-              carefully vetted experts, NexaHome helps connect you with skilled
+              identity-verified experts, NexaHome helps connect you with skilled
               providers committed to delivering quality workmanship and reliable
               service for every job.
             </p>

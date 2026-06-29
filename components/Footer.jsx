@@ -24,13 +24,13 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex gap-4">
-            <div className="w-[43px] h-[43px] flex items-center justify-center rounded-full">
+            <a href="https://www.facebook.com/profile.php?id=61572028496243" target="_blank" rel="noopener noreferrer" className="w-[43px] h-[43px] flex items-center justify-center rounded-full">
               <img src="/fb.png" alt="facebook" className="w-full h-full" />
-            </div>
+            </a>
 
-            <div className="w-[43px] h-[43px] flex items-center justify-center ">
+            <a href="https://www.instagram.com/nexahomeapp/" target="_blank" rel="noopener noreferrer" className="w-[43px] h-[43px] flex items-center justify-center ">
               <img src="/insta.png" alt="instagram" className="w-full h-full" />
-            </div>
+            </a>
           </div>
         </div>
 

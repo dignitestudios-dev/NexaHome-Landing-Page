@@ -3,8 +3,8 @@ import { useState } from "react";
 import { User, Mail, Phone, Check, Loader2, X } from "lucide-react";
 
 const benefits = [
-  "Access to trusted experts ready to help",
-  "Faster progress on your projects",
+  "Access to local, verified experts",
+  "A simpler way to tackle your home to-do list",
   "Priority access at launch",
 ];
 

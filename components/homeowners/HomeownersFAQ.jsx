@@ -4,11 +4,10 @@ import { useState } from "react";
 const faqs = [
   {
     question: "How does NexaHome work?",
-    answer: `NexaHome makes finding qualified home service experts simple and direct. Here’s how the process works for homeowners:
-Submit Your Details: Describe your project and the services you need. You can also upload photos or a video to help explain the job.
-Browse Matches: We instantly show you a list of local experts who match your request.
-Choose Your Experts :.  - Select the specific experts you’d like to notify about your project.
-Get Connected: Interested experts can accept your request and will reach out to you directly using your preferred method of contact. From there, you can communicate with them to discuss details, receive quotes, and manage the project.`,
+    answer: `NexaHome makes finding home service experts simple and direct. Here's how it works for homeowners:
+Submit your details: Describe your project and the services you need. You can add photos or a video to explain the job.
+Choose your experts: See verified experts who offer your service in your area. Send your request to up to five of them, or to all of them.
+Get connected: Interested experts can claim your request and reach out directly using your preferred contact method. From there, you discuss details, pricing, and scheduling directly with them.`,
   },
   {
     question: "Are all experts verified?",
@@ -21,9 +20,9 @@ Get Connected: Interested experts can accept your request and will reach out to 
       "NexaHome is 100% free for homeowners. Our goal is to connect you with the right experts without adding any cost to your project. You don’t pay anything to be matched with service providers. Any pricing, contracts, or payments for the work are handled directly between you and your chosen expert outside of the platform.",
   },
   {
-    question: "How quickly can I get matched with a expert?",
+    question: "How quickly will an expert contact me?",
     answer:
-      "Typically within minutes. As soon as you submit your request and select your preferred experts, they are notified right away. Many experts respond very quickly, though exact timing depends on their availability and how soon they choose to accept your request.",
+      "It depends on the experts you select and their availability. As soon as you submit your request, the experts you've chosen are notified. Many reach out quickly, but response time varies based on each expert's schedule and which requests they take on.",
   },
 ];
 

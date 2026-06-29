@@ -47,9 +47,8 @@ export default function HomeownersHero() {
               You did the hard part — you found the house. Now, let NexaHome
               help you take care of it. Skip the stress of{" "}
               <span className="font-bold"> DIY gone wrong </span> and the{" "}
-              <span className="font-bold"> "who do I call?"</span> panic. We
-              provide a hand-picked list of vetted experts to support every
-              project, repair, and routine maintenance —{" "}
+              <span className="font-bold"> "who do I call?"</span> panic. Connect
+              with local, verified experts for every project, repair, and routine maintenance —{" "}
               <span className="font-bold">
                 {" "}
                 so your home's next chapter starts with confidence

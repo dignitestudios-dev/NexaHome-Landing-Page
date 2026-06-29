@@ -11,7 +11,7 @@ const faqs = [
   {
     question: "How do I become a verified NexaHome Expert?",
     answer:
-      "Create an account, complete your profile, and submit your business details for verification. Once approved, you’ll begin receiving project requests that match your services and location. Verification helps maintain a trusted network of professionals for homeowners using NexaHome.",
+      "Create an account, complete your profile, and submit your business details for verification. Once approved, you'll be able to browse and unlock project requests that match your services and location. Verification helps maintain a trusted network of professionals for homeowners using NexaHome.",
   },
   {
     question: "How does the NexaHome credit system work?",
@@ -19,14 +19,14 @@ const faqs = [
       "NexaHome uses a credit system to give you access to homeowner leads. When you see a project you're interested in, you can use credits to unlock the homeowner’s contact information and reach out directly to discuss the job. Credits are purchased in advance and used only when you decide to unlock a lead.",
   },
   {
-    question: "How many credits does a lead cost?",
+    question: "How do credits and lead costs work?",
     answer:
-      "The number of credits required to unlock a lead depends on the type of project and service category. Larger or more specialized projects may require more credits, while smaller jobs may require fewer. The exact number of credits needed will always be shown before you unlock a lead so you can decide if the opportunity is right for you.",
+      "Credits are how you unlock leads on NexaHome. You buy them in packages up front, then use them only when you choose to unlock a homeowner's contact info. The number of credits a lead costs depends on the service category and the size of the project, so larger or more specialized jobs cost more. You'll always see the exact cost before you unlock a lead, so you can decide if it's worth it.",
   },
   {
-    question: "Do multiple professionals receive the same lead?",
+    question: "Do multiple experts receive the same lead?",
     answer:
-      "Yes. A small number of qualified professionals may receive the same project so homeowners can compare options and choose the best fit. NexaHome limits how many professionals can unlock each lead to help keep competition manageable.",
+      "Yes. Up to five experts can unlock and respond to the same lead. This gives homeowners the chance to hear from several local experts and decide who to move forward with. NexaHome caps the number at five to keep competition reasonable for experts.",
   },
   {
     question: "When do I pay NexaHome?",

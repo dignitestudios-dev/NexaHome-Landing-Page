@@ -6,7 +6,7 @@ export default function LouisianaBanner() {
         data-aos="fade-up"
       >
         <h2 className="text-2xl md:text-3xl capitalize font-heading font-bold text-white mb-3">
-          Serving homeowners across Louisiana
+          Serving homeowners across the Baton Rouge area
         </h2>
         <p className="text-white/80 text-sm capitalize max-w-2xl mx-auto">
           Join the NexaHome community and experience the easiest way to

@@ -26,9 +26,7 @@ export default function Hero() {
             </p>
             <p className="text-[#242424]  text-[14px] mb-8 leading-relaxed">
               NexaHome connects you with homeowners actively looking for the
-              services you provide. Get notified when new projects are posted in
-              your area, unlock the leads that interest you, and grow your
-              business with high-quality opportunities — not endless cold leads.
+              services you provide. Browse real projects posted by homeowners in your area, unlock the leads that interest you, and grow your business with genuine opportunities — not cold calls or guesswork.
             </p>
 
             <p className="text-sm font-semibold text-gray-500  tracking-wider mb-4">

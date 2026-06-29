@@ -18,8 +18,7 @@ export default function CtaBanner() {
             Be The First To Know
           </h2>
           <p className="text-white/70 mb-8  ">
-            Join our waitlist to be the first to experience a simplified,
-            trusted approach to home care in your neighborhood.
+            Join our waitlist to be among the first Experts on the platform in Baton Rouge.
           </p>
           <div className="flex gap-3  flex-wrap">
             <button>
