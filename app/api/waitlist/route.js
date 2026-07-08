@@ -233,7 +233,7 @@ export async function POST(request) {
       : `New Homeowner Waitlist Signup — ${normalizedName}`;
 
     const adminMsg = {
-      to: "info@nexahomeapp.com",
+      to: "nexahomeapp@gmail.com",
       from: {
         email: "no-reply@nexahomeapp.com",
         name: "NexaHome Waitlist",
