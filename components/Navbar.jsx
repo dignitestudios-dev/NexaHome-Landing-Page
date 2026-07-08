@@ -8,19 +8,19 @@ export default function Navbar() {
   const pathname = usePathname();
   console.log("pathname:", pathname);
   const links = [
-    { label: "Home", href: "#home" },
+    { label: "Home", href: "/" },
     { label: "How It Works", href: "/homeowners#how-it-works" },
     { label: "Features", href: "/homeowners#features" },
-    { label: "About Us", href: "#about" },
-    { label: "Contact Us", href: "#waitlist" },
+    { label: "About Us", href: "/#about" },
+    { label: "Contact Us", href: "/#waitlist" },
   ];
 
   const ExpertLinks = [
-    { label: "Home", href: "#home" },
-    { label: "Features", href: "#features" },
-    { label: "About Us", href: "#about" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Contact Us", href: "#waitlist" },
+    { label: "Home", href: "/" },
+    { label: "Features", href: "/#features" },
+    { label: "About Us", href: "/#about" },
+    { label: "How It Works", href: "/#how-it-works" },
+    { label: "Contact Us", href: "/#waitlist" },
   ];
   return (
     <nav className="bg-white  sticky top-0 z-50">
