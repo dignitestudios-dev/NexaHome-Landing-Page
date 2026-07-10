@@ -213,14 +213,12 @@ async function addSubscriberToMailchimp({ email, name, phone, company, userType 
   const isExpert = userType === "expert";
   const tag = isExpert ? "Expert Waitlist" : "Homeowner Waitlist";
 
-  const nameParts = name.trim().split(/\s+/);
-  const fname = nameParts[0] || "";
-  const lname = nameParts.slice(1).join(" ") || "";
+  const fullName = name.trim();
 
   // Attempt 1: All fields (including FNAME, LNAME, PHONE, COMPANY if provided)
   const mergeFields = {
-    FNAME: fname,
-    LNAME: lname,
+    FNAME: fullName,
+    LNAME: "",
   };
   if (phone) mergeFields.PHONE = phone;
   if (company) mergeFields.COMPANY = company;
@@ -256,8 +254,8 @@ async function addSubscriberToMailchimp({ email, name, phone, company, userType 
     email_address: email,
     status_if_new: "subscribed",
     merge_fields: {
-      FNAME: fname,
-      LNAME: lname,
+      FNAME: fullName,
+      LNAME: "",
     },
   };
 
