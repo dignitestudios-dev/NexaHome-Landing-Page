@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import sgMail from "@sendgrid/mail";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -192,6 +193,156 @@ Stay tuned.
   };
 }
 
+async function addSubscriberToMailchimp({ email, name, phone, company, userType }) {
+  const apiKey = process.env.MAILCHIMP_API_KEY;
+  const listId = process.env.MAILCHIMP_AUDIENCE_ID;
+
+  if (!apiKey || !listId) {
+    throw new Error("Mailchimp API Key or Audience ID is missing in environment variables.");
+  }
+
+  const dc = apiKey.split("-")[1] || "us1";
+  const subscriberHash = crypto
+    .createHash("md5")
+    .update(email.toLowerCase())
+    .digest("hex");
+
+  const url = `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members/${subscriberHash}`;
+  const authHeader = `Basic ${Buffer.from(`anykey:${apiKey}`).toString("base64")}`;
+
+  const isExpert = userType === "expert";
+  const tag = isExpert ? "Expert Waitlist" : "Homeowner Waitlist";
+
+  const fullName = name.trim();
+
+  // Attempt 1: All fields (including FNAME, LNAME, PHONE, COMPANY if provided)
+  const mergeFields = {
+    FNAME: fullName,
+    LNAME: "",
+  };
+  if (phone) mergeFields.PHONE = phone;
+  if (company) mergeFields.COMPANY = company;
+
+  const body1 = {
+    email_address: email,
+    status_if_new: "subscribed",
+    merge_fields: mergeFields,
+  };
+
+  console.log(`[Mailchimp] Attempting to subscribe ${email} with merge fields...`);
+
+  let response = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: authHeader,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body1),
+  });
+
+  if (response.ok) {
+    console.log(`[Mailchimp] Successfully subscribed ${email} on first attempt.`);
+    return await response.json();
+  }
+
+  let errorData = await response.json().catch(() => ({}));
+  console.warn(`[Mailchimp] First attempt failed with status ${response.status}:`, errorData);
+
+  // Attempt 2: Fallback to only FNAME and LNAME (in case PHONE/COMPANY don't exist)
+  console.log(`[Mailchimp] Retrying with only basic fields (FNAME, LNAME)...`);
+  const body2 = {
+    email_address: email,
+    status_if_new: "subscribed",
+    merge_fields: {
+      FNAME: fullName,
+      LNAME: "",
+    },
+  };
+
+  response = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: authHeader,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body2),
+  });
+
+  if (response.ok) {
+    console.log(`[Mailchimp] Successfully subscribed ${email} on second attempt.`);
+    return await response.json();
+  }
+
+  errorData = await response.json().catch(() => ({}));
+  console.warn(`[Mailchimp] Second attempt failed with status ${response.status}:`, errorData);
+
+  // Attempt 3: Fallback to only email (minimum required)
+  console.log(`[Mailchimp] Retrying with only email...`);
+  const body3 = {
+    email_address: email,
+    status_if_new: "subscribed",
+  };
+
+  response = await fetch(url, {
+    method: "PUT",
+    headers: {
+      Authorization: authHeader,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body3),
+  });
+
+  if (response.ok) {
+    console.log(`[Mailchimp] Successfully subscribed ${email} on third attempt.`);
+    return await response.json();
+  }
+
+  errorData = await response.json().catch(() => ({}));
+  console.error(`[Mailchimp] Third attempt failed with status ${response.status}:`, errorData);
+  const mailchimpError = new Error(errorData.detail || "Failed to subscribe member to Mailchimp.");
+  mailchimpError.status = response.status;
+  throw mailchimpError;
+}
+
+async function addTagsToMailchimpMember({ email, userType }) {
+  const apiKey = process.env.MAILCHIMP_API_KEY;
+  const listId = process.env.MAILCHIMP_AUDIENCE_ID;
+  const dc = apiKey.split("-")[1] || "us1";
+  const subscriberHash = crypto
+    .createHash("md5")
+    .update(email.toLowerCase())
+    .digest("hex");
+
+  const url = `https://${dc}.api.mailchimp.com/3.0/lists/${listId}/members/${subscriberHash}/tags`;
+  const authHeader = `Basic ${Buffer.from(`anykey:${apiKey}`).toString("base64")}`;
+
+  const isExpert = userType === "expert";
+  const tag = isExpert ? "Expert Waitlist" : "Homeowner Waitlist";
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      Authorization: authHeader,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      tags: [
+        {
+          name: tag,
+          status: "active",
+        },
+      ],
+    }),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    console.warn(`[Mailchimp] Failed to apply tags to ${email}:`, errorData);
+  } else {
+    console.log(`[Mailchimp] Successfully applied tag "${tag}" to ${email}.`);
+  }
+}
+
 export async function POST(request) {
   try {
     const body = await request.json();
@@ -266,6 +417,21 @@ export async function POST(request) {
       html: confirmationEmail.html,
     };
 
+    // Call Mailchimp Integration
+    await addSubscriberToMailchimp({
+      email: normalizedEmail,
+      name: normalizedName,
+      phone: normalizedPhone,
+      company: normalizedCompany,
+      userType: normalizedUserType,
+    });
+
+    await addTagsToMailchimpMember({
+      email: normalizedEmail,
+      userType: normalizedUserType,
+    });
+
+    // Send confirmation email to user and notification email to admin using SendGrid
     await Promise.all([sgMail.send(adminMsg), sgMail.send(userMsg)]);
 
     return Response.json(
@@ -274,13 +440,14 @@ export async function POST(request) {
     );
   } catch (error) {
     console.error(
-      "SendGrid Error:",
-      error?.response?.body || error.message
+      "Waitlist Error:",
+      error.message
     );
 
+    const status = error.status || 500;
     return Response.json(
-      { error: "Something went wrong. Please try again later." },
-      { status: 500 }
+      { error: error.message || "Something went wrong. Please try again later." },
+      { status: status }
     );
   }
 }
