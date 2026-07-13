@@ -13,15 +13,15 @@ export default function Footer() {
 
   const policyLinks = isHomeowner
     ? {
-        terms: "/home-owner/terms-and-conditions",
-        privacy: "/home-owner/privacy-policy",
-        refund: "/home-owner/refund-policy",
-      }
+      terms: "/home-owner/terms-and-conditions",
+      privacy: "/home-owner/privacy-policy",
+      refund: "/home-owner/refund-policy",
+    }
     : {
-        terms: "/experts/terms-and-conditions",
-        privacy: "/experts/privacy-policy",
-        refund: "/experts/refund-policy",
-      };
+      terms: "/experts/terms-and-conditions",
+      privacy: "/experts/privacy-policy",
+      refund: "/experts/refund-policy",
+    };
 
   return (
     <footer className="bg-white text-black">
@@ -64,7 +64,15 @@ export default function Footer() {
 
           {/* Right Side */}
           <div className="flex flex-col md:items-end text-sm gap-2">
-            <div className="flex gap-2">
+            <div className="flex gap-1">
+              <Link href="/partner/terms-and-conditions" className="hover:underline">
+                Partner Terms & Conditions
+              </Link>
+              <span> / </span>
+              <Link href="/partner/privacy-policy" className="hover:underline">
+                Partner Privacy Policy
+              </Link>
+              |
               <Link href={policyLinks.terms} className="hover:underline">
                 Terms &amp; Conditions
               </Link>
