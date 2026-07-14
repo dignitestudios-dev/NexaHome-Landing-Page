@@ -8,11 +8,11 @@ export default function Navbar() {
   const pathname = usePathname();
   console.log("pathname:", pathname);
   const links = [
-    { label: "Home", href: "/" },
+    { label: "Home", href: "/homeowners" },
     { label: "How It Works", href: "/homeowners#how-it-works" },
     { label: "Features", href: "/homeowners#features" },
-    { label: "About Us", href: "/#about" },
-    { label: "Contact Us", href: "/#waitlist" },
+    { label: "About Us", href: "/homeowners/#about" },
+    { label: "Contact Us", href: "/homeowners/#waitlist" },
   ];
 
   const ExpertLinks = [
