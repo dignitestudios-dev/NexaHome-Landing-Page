@@ -55,7 +55,7 @@ export default function Footer() {
         <div className="border-t border-[#DCDCDC] my-8"></div>
 
         {/* Bottom Row */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+        <div className="flex px-2 flex-col md:flex-row justify-between items-start md:items-center gap-6">
           {/* Left Side */}
           <div className="text-sm text-black">
             <p>Copyright © {currentYear} NexaHome.</p>
@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* Right Side */}
           <div className="flex flex-col md:items-end text-sm gap-2">
-            <div className="flex gap-1">
+            <div className="flex   flex-wrap gap-2">
               <Link href="/partner/terms-and-conditions" className="hover:underline">
                 Partner Terms & Conditions
               </Link>
