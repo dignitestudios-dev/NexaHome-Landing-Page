@@ -64,15 +64,15 @@ export default function Footer() {
 
           {/* Right Side */}
           <div className="flex flex-col md:items-end text-sm gap-2">
-            {/* <div className="flex   flex-wrap gap-2">
-              <Link href="/partner/terms-and-conditions" className="hover:underline">
+            <div className="flex   flex-wrap gap-2">
+              {/* <Link href="/partner/terms-and-conditions" className="hover:underline">
                 Partner Terms & Conditions
               </Link>
               <span> / </span>
               <Link href="/partner/privacy-policy" className="hover:underline">
                 Partner Privacy Policy
               </Link>
-              |
+              | */}
               <Link href={policyLinks.terms} className="hover:underline">
                 Terms &amp; Conditions
               </Link>
@@ -84,7 +84,7 @@ export default function Footer() {
               <Link href={policyLinks.refund} className="hover:underline">
                 Refund Policy
               </Link>
-            </div> */}
+            </div>
             <Link href="mailto:info@nexahomeapp.com" className="text-black/70">info@nexahomeapp.com</Link>
           </div>
         </div>
