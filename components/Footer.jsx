@@ -38,7 +38,7 @@ export default function Footer() {
               priority
             />
           </div>
-
+ 
           {/* Social Icons */}
           <div className="flex gap-4">
             <a href="https://www.facebook.com/profile.php?id=61572028496243" target="_blank" rel="noopener noreferrer" className="w-[43px] h-[43px] flex items-center justify-center rounded-full">
@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* Right Side */}
           <div className="flex flex-col md:items-end text-sm gap-2">
-            <div className="flex   flex-wrap gap-2">
+            {/* <div className="flex   flex-wrap gap-2">
               <Link href="/partner/terms-and-conditions" className="hover:underline">
                 Partner Terms & Conditions
               </Link>
@@ -84,7 +84,7 @@ export default function Footer() {
               <Link href={policyLinks.refund} className="hover:underline">
                 Refund Policy
               </Link>
-            </div>
+            </div> */}
             <Link href="mailto:info@nexahomeapp.com" className="text-black/70">info@nexahomeapp.com</Link>
           </div>
         </div>
