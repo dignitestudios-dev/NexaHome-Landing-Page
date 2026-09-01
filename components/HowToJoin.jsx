@@ -68,12 +68,14 @@ export default function HowToJoin() {
         </div>
 
         <div className="text-center" data-aos="fade-up">
-          <Link
-            href="#waitlist"
-            className="bg-[#005864] text-white rounded-xl text-base px-8 py-4"
+          <a
+            href="https://expert.nexahomeapp.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#005864] text-white rounded-xl text-base px-8 py-4 inline-block"
           >
             Get Started Today
-          </Link>
+          </a>
         </div>
       </div>
     </section>

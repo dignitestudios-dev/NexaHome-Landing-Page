@@ -8,7 +8,7 @@ import LouisianaBanner from "../../components/homeowners/LouisianaBanner";
 import Testimonials from "../../components/homeowners/Testimonials";
 import HomeownersAbout from "../../components/homeowners/HomeownersAbout";
 import HomeownersFAQ from "../../components/homeowners/HomeownersFAQ";
-import HomeownersWaitlist from "../../components/homeowners/HomeownersWaitlist";
+
 import HomeOwnerCtaBanner from "../../components/homeowners/CtaBanner";
 
 const homeownersShareImageUrl = "https://nexahomeapp.com/home-owner.png";
@@ -44,7 +44,6 @@ export default function HomeownersPage() {
       {/* <Testimonials /> */}
       <HomeownersAbout />
       <HomeownersFAQ />
-      <HomeownersWaitlist />
       <HomeOwnerCtaBanner />
       <Footer />
     </main>

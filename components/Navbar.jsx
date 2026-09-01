@@ -12,7 +12,6 @@ export default function Navbar() {
     { label: "How It Works", href: "/homeowners#how-it-works" },
     { label: "Features", href: "/homeowners#features" },
     { label: "About Us", href: "/homeowners/#about" },
-    { label: "Contact Us", href: "/homeowners/#waitlist" },
   ];
 
   const ExpertLinks = [
@@ -20,8 +19,8 @@ export default function Navbar() {
     { label: "Features", href: "/#features" },
     { label: "About Us", href: "/#about" },
     { label: "How It Works", href: "/#how-it-works" },
-    { label: "Contact Us", href: "/#waitlist" },
   ];
+  
   return (
     <nav className="bg-white  sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,12 +56,14 @@ export default function Navbar() {
           </div>
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="#waitlist"
+            <a
+              href={pathname === "/homeowners" ? "https://homeowner.nexahomeapp.com" : "https://expert.nexahomeapp.com"}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary  font-normal text-[16px] py-2 px-4"
             >
-              Join The Waitlist
-            </Link>
+              View App
+            </a>
             {pathname != "/homeowners" ? (
               <Link
                 href="/homeowners"
@@ -124,12 +125,14 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-2">
-              <Link
-                href="#waitlist"
+              <a
+                href={pathname === "/homeowners" ? "https://homeowner.nexahomeapp.com" : "https://expert.nexahomeapp.com"}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary text-sm py-2 px-4 text-center"
               >
-                Join The Waitlist
-              </Link>
+                View App
+              </a>
               <Link
                 href="/homeowners"
                 className="btn-outline text-sm py-2 px-4 text-center"
