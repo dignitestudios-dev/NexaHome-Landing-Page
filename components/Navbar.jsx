@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  console.log("pathname:", pathname);
+
   const links = [
     { label: "Home", href: "/homeowners" },
     { label: "How It Works", href: "/homeowners#how-it-works" },
