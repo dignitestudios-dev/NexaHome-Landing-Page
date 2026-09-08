@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function CtaBanner() {
   return (
     <section className="relative mb-10 overflow-hidden">
@@ -11,30 +13,16 @@ export default function CtaBanner() {
           <div className="absolute rounded-[14px] inset-0 bg-black/60"></div>
         </div>
         <div className="relative ml-auto max-w-md z-40" data-aos="fade-up">
-          <p className="text-white  text-sm uppercase tracking-widest mb-2">
-            Launching Soon
-          </p>
+
           <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-3">
-            Be The First To Know
+            NOW LIVE
           </h2>
           <p className="text-white/70 mb-8  ">
-            Join our waitlist to be among the first Experts on the platform in Baton Rouge.
+            Grow Your Business With NexaHome. <br /> Join NexaHome as an Expert and connect with homeowners in Baton Rouge looking for trusted professionals for their next project.
           </p>
           <div className="flex gap-3  flex-wrap">
-            <button>
-              <img
-                src="/google-play-store.png"
-                alt="App Store Badge"
-                className="w-34 h-11"
-              />
-            </button>
-            <button>
-              <img
-                src="/app-store.png"
-                alt="App Store Badge"
-                className="w-34 h-11"
-              />
-            </button>
+            <Link className="flex items-center gap-3 px-5 py-3 bg-[#F8F8F8] rounded-[10px] w-full sm:w-auto font-bold" href={"https://expert.nexahomeapp.com"} target="_blank">Go to the Web App</Link>
+
           </div>
         </div>
       </div>

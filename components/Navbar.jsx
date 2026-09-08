@@ -93,26 +93,37 @@ export default function Navbar() {
 
             {/* Desktop CTA Buttons */}
             <div className="hidden md:flex items-center gap-3">
-              <button
-                type="button"
-                onClick={handleOpenModal}
-                className="btn-primary font-medium text-[16px] py-2 px-5 inline-flex items-center gap-2 shadow-sm hover:shadow transition-all"
-              >
-                <span>Get the App</span>
-                <svg
-                  className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              {pathname === "/" ? (
+                <a
+                  href="https://expert.nexahomeapp.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary font-medium text-[16px] py-2 px-5 inline-flex items-center gap-2 shadow-sm hover:shadow transition-all"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
+                  Go to the Web App
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleOpenModal}
+                  className="btn-primary font-medium text-[16px] py-2 px-5 inline-flex items-center gap-2 shadow-sm hover:shadow transition-all"
+                >
+                  <span>Get the App</span>
+                  <svg
+                    className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              )}
 
               {pathname !== "/homeowners" ? (
                 <Link
@@ -165,7 +176,7 @@ export default function Navbar() {
           {/* Mobile Menu */}
           {menuOpen && (
             <div className="md:hidden pb-4 border-t border-gray-100 pt-3 flex flex-col gap-3">
-              {links.map((item) => (
+              {(pathname === "/homeowners" ? links : ExpertLinks).map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -176,13 +187,25 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="flex flex-col gap-2 pt-2">
-                <button
-                  type="button"
-                  onClick={handleOpenModal}
-                  className="btn-primary text-sm py-2.5 px-4 text-center w-full"
-                >
-                  Get the App
-                </button>
+                {pathname === "/" ? (
+                  <a
+                    href="https://expert.nexahomeapp.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary text-sm py-2.5 px-4 text-center w-full"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Go to the Web App
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleOpenModal}
+                    className="btn-primary text-sm py-2.5 px-4 text-center w-full"
+                  >
+                    Get the App
+                  </button>
+                )}
                 <Link
                   href={pathname !== "/homeowners" ? "/homeowners" : "/"}
                   className="btn-outline text-sm py-2 px-4 text-center"

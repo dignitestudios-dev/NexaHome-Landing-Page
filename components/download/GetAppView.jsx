@@ -82,9 +82,9 @@ export default function GetAppView() {
             <div className="absolute -top-24 -right-24 w-72 h-72 bg-[#005864]/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-[#F5A623]/5 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 grid md:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="relative z-10 grid gap-8 lg:gap-12 items-center">
               {/* Left/Main Column: Badges, Title & Instant Download Buttons */}
-              <div className="md:col-span-7 flex flex-col items-center md:items-start text-center md:text-left">
+              <div className="md:col-span-12 flex flex-col items-center  text-center md:text-left">
                 {/* Pill Tag */}
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#005864]/10 text-primary font-semibold text-xs uppercase tracking-wider mb-4">
                   <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -101,7 +101,7 @@ export default function GetAppView() {
                 </p>
 
                 {/* The Two Download Buttons - Immediately visible */}
-                <div className="w-full flex flex-col sm:flex-row gap-3.5 sm:gap-4 items-stretch sm:items-center justify-center md:justify-start">
+                <div className="w-full flex flex-col sm:flex-row gap-3.5 sm:gap-4 items-stretch sm:items-center justify-center t">
                   {/* Apple App Store */}
                   <a
                     href={APPLE_STORE_URL}
@@ -178,7 +178,7 @@ export default function GetAppView() {
                 </div>
 
                 {/* Subtle reassurance chips */}
-                <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-gray-500 font-medium">
+                {/* <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-gray-500 font-medium">
                   <span className="inline-flex items-center gap-1.5">
                     <svg
                       className="w-4 h-4 text-[#005864]"
@@ -212,37 +212,11 @@ export default function GetAppView() {
                     </svg>
                     Verified Local Experts
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* Right Column: Desktop QR Code or App Visual */}
-              <div className="md:col-span-5 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-gray-100 pt-6 md:pt-0 md:pl-8">
-                {/* On desktop: Scan with phone */}
-                <div className="hidden sm:flex flex-col items-center text-center">
-                  <div className="p-3 bg-white rounded-2xl border-2 border-[#005864]/15 shadow-inner mb-3">
-                    <img
-                      src={qrCodeUrl}
-                      alt="Scan to download NexaHome app"
-                      className="w-36 h-36 rounded-lg object-contain"
-                    />
-                  </div>
-                  <p className="text-xs font-semibold text-gray-800">
-                    Scan with your phone camera
-                  </p>
-                  <p className="text-[11px] text-gray-400 mt-0.5">
-                    Opens this download page instantly
-                  </p>
-                </div>
-
-                {/* Mobile Preview Thumbnail */}
-                <div className="sm:hidden flex items-center justify-center">
-                  <img
-                    src="/phone-mockup.png"
-                    alt="NexaHome mobile app preview"
-                    className="w-44 h-auto drop-shadow-lg"
-                  />
-                </div>
-              </div>
+           
             </div>
           </div>
         </div>
