@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import AppDownloadModal from "../AppDownloadModal";
 
 const serviceCategories = [
   { icon: "/painting.png", label: "Painters", count: "892 pros" },
@@ -16,6 +17,7 @@ const serviceCategories = [
 export default function HomeownersHero() {
   const [query, setQuery] = useState("");
   const [zip, setZip] = useState("");
+  const [appModalOpen, setAppModalOpen] = useState(false);
   const scrollRef = useRef(null);
 
   const scroll = (direction) => {
@@ -56,8 +58,14 @@ export default function HomeownersHero() {
               .
             </p>
 
-            {/* Search Bar */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-2 flex flex-col sm:flex-row gap-2 mb-6">
+            {/* Desktop / Large Screens Search Bar (Hidden on Mobile) */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                window.open("https://homeowner.nexahomeapp.com/", "_blank", "noopener,noreferrer");
+              }}
+              className="hidden md:flex bg-white rounded-2xl shadow-lg border border-gray-100 p-2 flex-row gap-2 mb-6"
+            >
               <input
                 type="text"
                 placeholder="What service do you need?"
@@ -71,11 +79,38 @@ export default function HomeownersHero() {
                 placeholder="ZIP code"
                 value={zip}
                 onChange={(e) => setZip(e.target.value)}
-                className="w-full sm:w-28 px-4 py-3 text-sm rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                className="w-28 px-4 py-3 text-sm rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
               />
 
-              <button className="bg-[#005864] text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-[#004a54] transition-colors whitespace-nowrap">
+              <button
+                type="submit"
+                className="bg-[#005864] text-white px-6 py-3 rounded-xl text-sm font-semibold hover:bg-[#004a54] transition-colors whitespace-nowrap"
+              >
                 Search
+              </button>
+            </form>
+
+            {/* Mobile / Small Screens CTA (Hidden on Desktop) */}
+            <div className="block md:hidden mb-8">
+              <button
+                type="button"
+                onClick={() => setAppModalOpen(true)}
+                className="btn-primary font-medium text-[16px] py-2.5 px-6 inline-flex items-center justify-center gap-2 shadow-sm hover:shadow transition-all w-full sm:w-auto text-center"
+              >
+                <span>Get the App</span>
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:translate-x-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
               </button>
             </div>
           </div>
@@ -136,6 +171,12 @@ export default function HomeownersHero() {
           </div>
         </div>
       </div>
+
+      {/* App Download Modal */}
+      <AppDownloadModal
+        isOpen={appModalOpen}
+        onClose={() => setAppModalOpen(false)}
+      />
     </section>
   );
 }

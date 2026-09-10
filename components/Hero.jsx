@@ -24,12 +24,24 @@ export default function Hero() {
             <p className="text-lg capitalize font-semibold text-gray-700 mb-3">
               Connect with Homeowners Who Are Ready to Hire
             </p>
-            <p className="text-[#242424]  text-[14px] mb-8 leading-relaxed">
+            <p className="text-[#242424] text-[14px] mb-8 leading-relaxed">
               NexaHome connects you with homeowners actively looking for the
               services you provide. Browse real projects posted by homeowners in your area, unlock the leads that interest you, and grow your business with genuine opportunities — not cold calls or guesswork.
             </p>
 
-            <p className="text-sm font-semibold text-gray-500  tracking-wider mb-4">
+            {/* Mobile CTA Button below description */}
+            <div className="block md:hidden mb-8">
+              <a
+                href="https://expert.nexahomeapp.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary font-medium text-[16px] py-2.5 px-6 inline-flex items-center justify-center gap-2 shadow-sm hover:shadow transition-all w-full sm:w-auto text-center"
+              >
+                Go to the Web App
+              </a>
+            </div>
+
+            <p className="text-sm font-semibold text-gray-500 tracking-wider mb-4">
               Popular Services:
             </p>
             <div className="flex flex-wrap gap-3">
