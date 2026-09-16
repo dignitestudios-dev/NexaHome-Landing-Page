@@ -97,22 +97,6 @@ export default function Navbar() {
                   </svg>
                 </button>
               )}
-
-              {pathname !== "/homeowners" ? (
-                <Link
-                  href="/homeowners"
-                  className="btn-outline font-normal text-[16px] py-2 px-4"
-                >
-                  For Homeowners
-                </Link>
-              ) : (
-                <Link
-                  href="/"
-                  className="btn-outline font-normal text-[16px] py-2 px-4"
-                >
-                  For Experts
-                </Link>
-              )}
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -159,14 +143,39 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
-              <div className="flex flex-col gap-2 pt-2">
-                <Link
-                  href={pathname !== "/homeowners" ? "/homeowners" : "/"}
-                  className="btn-outline text-sm py-2 px-4 text-center"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {pathname !== "/homeowners" ? "For Homeowners" : "For Experts"}
-                </Link>
+              <div className="flex flex-col gap-2 pt-2 px-2">
+                {pathname === "/" ? (
+                  <a
+                    href="https://expert.nexahomeapp.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary text-sm py-2.5 px-4 text-center"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Go to the Web App
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleOpenModal}
+                    className="btn-primary text-sm py-2.5 px-4 text-center inline-flex items-center justify-center gap-2"
+                  >
+                    <span>Get the App</span>
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+                )}
               </div>
             </div>
           )}

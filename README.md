@@ -1,76 +1,97 @@
-# NexaHome Landing Page (Next.js App Router)
+# NexaHome Landing Portal & Web Experience
 
-A Next.js 14 App Router + Tailwind CSS landing page for NexaHome.
+A high-performance Next.js 14 App Router and Tailwind CSS platform for **NexaHome** (`https://nexahomeapp.com`), connecting homeowners in Baton Rouge with local, identity-verified home service professionals.
 
-## 🚀 Getting Started
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ installed
+- **Node.js**: `v18.17+` or `v20+`
+- **npm** or **yarn** / **pnpm**
 
-### Installation
+### Installation & Development
 
 ```bash
+# 1. Install dependencies
 npm install
+
+# 2. Run local development server
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Build for Production
+### Production Build
 
 ```bash
+# Build optimized static and server-rendered bundle
 npm run build
+
+# Run local production server
 npm start
 ```
 
 ---
 
-## 📁 Project Structure
+## 🌐 Routes & Pages
 
-```
-nexahome/
-├── app/
-│   ├── layout.jsx        # Root layout with metadata + global CSS import
-│   ├── page.jsx          # Home page — composes all sections
-│   └── globals.css       # Global CSS + Tailwind directives + Google Fonts
-├── components/
-│   ├── Navbar.jsx        # "use client" — sticky nav with mobile menu
-│   ├── Hero.jsx          # Welcome section with service category pills
-│   ├── WhyPartner.jsx    # 4-card benefits grid with hover effects
-│   ├── About.jsx         # About section with dashboard mockup
-│   ├── HowToJoin.jsx     # 4-step process with numbered cards
-│   ├── FAQ.jsx           # "use client" — accordion FAQ
-│   ├── Waitlist.jsx      # "use client" — signup form with success state
-│   ├── CtaBanner.jsx     # Full-bleed CTA with app store buttons
-│   └── Footer.jsx        # 4-column site footer
-├── tailwind.config.js
-├── postcss.config.js
-├── next.config.js
-└── package.json
-```
-
-### Client vs Server Components
-| Component | Type | Reason |
-|-----------|------|--------|
-| `Navbar` | Client (`"use client"`) | Uses `useState` for mobile menu |
-| `FAQ` | Client (`"use client"`) | Uses `useState` for accordion |
-| `Waitlist` | Client (`"use client"`) | Uses `useState` for form |
-| All others | Server Component | Static rendering, no hooks |
-
----
-
-## 🎨 Customization
-
-- **Colors**: Edit `tailwind.config.js` — change `primary` (default: `#1B6B4A`)
-- **Fonts**: Update the Google Fonts import in `app/globals.css`
-- **Content**: Edit individual files in `/components`
-- **SEO**: Update `metadata` in `app/layout.jsx`
+| Route | Purpose / Description | Primary Target |
+| :--- | :--- | :--- |
+| `/` | **Expert Landing Page** — Features, lead benefits, onboarding flow, FAQ, Web App launch | Contractors & Home Service Pros |
+| `/homeowners` | **Homeowner Landing Page** — Search by service & ZIP, 3-step match, why choose, App Store buttons | Baton Rouge Homeowners |
+| `/get` | **Direct App Download Page** — Automatic OS detection (iOS vs Android), App Store & Google Play links, dynamic QR code | Mobile App Downloaders |
+| `/api/waitlist` | **Waitlist API Endpoint (POST)** — Resilient Mailchimp subscription + dual SendGrid confirmation & admin alerts | Backend Service |
+| `/experts/*` | Terms & Conditions, Privacy Policy, Refund Policy | Service Pros |
+| `/home-owner/*`| Terms & Conditions, Privacy Policy, Refund Policy | Homeowners |
+| `/partner/*` | Partner Terms & Conditions, Partner Privacy Policy | Business Partners |
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS 3
-- **Language**: JavaScript (JSX)
-- **Fonts**: DM Sans + Playfair Display (Google Fonts)
+- **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)
+- **UI Library**: React 18
+- **Styling**: [Tailwind CSS 3](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Animations**: [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/)
+- **Email & CRM**: SendGrid (`@sendgrid/mail`) & Mailchimp API v3.0
+- **Typography**: Plus Jakarta Sans
+- **Deployment**: Vercel
+
+---
+
+## 🎨 Design System
+
+- **Primary Color**: `#005864` (Deep Teal)
+- **Primary Dark**: `#004c56`
+- **Primary Light**: `#03717f`
+- **Accent**: `#F5A623` (Golden Amber)
+- **Backgrounds**: `#FFFFFF` / `#F9FAFB` (Gray-50) / `#F3F4F6` (Gray-100)
+- **Font**: `Plus Jakarta Sans`
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# SendGrid Email Integration
+SENDGRID_API_KEY=SG.your_api_key_here
+
+# Mailchimp Integration
+MAILCHIMP_API_KEY=your_key-usX
+MAILCHIMP_AUDIENCE_ID=your_audience_id
+
+# App Store Links (Optional overrides)
+NEXT_PUBLIC_APP_STORE_URL=https://apps.apple.com/us/app/nexahome-app/id6769668269
+NEXT_PUBLIC_GOOGLE_PLAY_URL=https://play.google.com/store/apps/details?id=com.dignitestudios.nexahome&pli=1
+```
+
+---
+
+## 📖 In-Depth Documentation
+
+For full architectural diagrams, component breakdown, Mailchimp retry logic, and technical guides, check out:
+- [docs/PROJECT_DOCUMENTATION.md](./docs/PROJECT_DOCUMENTATION.md)

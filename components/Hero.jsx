@@ -8,7 +8,6 @@ const services = [
   { icon: "/landscaping.png", label: "Landscaping" },
   { icon: "/audio-visual.png", label: "Audio & Visual" },
   { icon: "/cleaning.png", label: "Cleaning" },
-  { icon: "", label: "View All" },
 ];
 
 export default function Hero() {
@@ -46,15 +45,15 @@ export default function Hero() {
             </p>
             <div className="flex flex-wrap gap-3">
               {services.map((s) => (
-                <button
+                <div
                   key={s.label}
-                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-gray-700 hover:border-primary hover:text-primary hover:bg-primary-light transition-all"
+                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-gray-700 cursor-default select-none"
                 >
                   {s.icon ? (
                     <img src={s.icon} alt={s.label} className="w-4 h-4" />
                   ) : null}
                   {s.label}
-                </button>
+                </div>
               ))}
             </div>
           </div>
