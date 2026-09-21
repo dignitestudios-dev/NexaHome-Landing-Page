@@ -12,16 +12,17 @@ export default function WelcomeModal() {
 
   useEffect(() => {
     setMounted(true);
-    if (pathname === "/") {
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-    }
     try {
-      localStorage.removeItem("nexahome_role");
-      sessionStorage.removeItem("nexahome_role");
+      const alreadySeen = localStorage.getItem("nexahome_welcome_seen");
+      if (pathname === "/" && !alreadySeen) {
+        setIsOpen(true);
+      } else {
+        setIsOpen(false);
+      }
     } catch {
-      // ignore
+      if (pathname === "/") {
+        setIsOpen(true);
+      }
     }
   }, [pathname]);
 
@@ -39,6 +40,12 @@ export default function WelcomeModal() {
   if (!mounted || !isOpen || pathname !== "/") return null;
 
   const handleSelectRole = (role) => {
+    try {
+      localStorage.setItem("nexahome_welcome_seen", "true");
+      localStorage.setItem("nexahome_role", role);
+    } catch {
+      // ignore
+    }
     setIsOpen(false);
     if (role === "homeowner") {
       router.push("/homeowners");
