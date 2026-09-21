@@ -1,27 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Home, Wrench, ArrowRight } from "lucide-react";
 
 export default function WelcomeModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
-    setIsOpen(true);
+    if (pathname === "/") {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
     try {
       localStorage.removeItem("nexahome_role");
       sessionStorage.removeItem("nexahome_role");
     } catch {
       // ignore
     }
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && pathname === "/") {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -29,9 +34,9 @@ export default function WelcomeModal() {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isOpen]);
+  }, [isOpen, pathname]);
 
-  if (!mounted || !isOpen) return null;
+  if (!mounted || !isOpen || pathname !== "/") return null;
 
   const handleSelectRole = (role) => {
     setIsOpen(false);

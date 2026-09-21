@@ -24,44 +24,53 @@ export default function HomeOwnerCtaBanner() {
             {/* Store Buttons */}
             <div className="flex flex-col sm:flex-row items-center lg:items-start gap-4">
               {/* Google Play */}
-              <Link href={"https://play.google.com/store/apps/details?id=com.dignitestudios.nexahome"} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-5 py-3 bg-[#F8F8F8] rounded-[10px] w-full sm:w-auto">
-                <svg width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M3.18 23.5L13.5 12L3.18 0.5Z" fill="#4285F4" />
-                  <path d="M17.5 15.97L5.5 23L13.5 12Z" fill="#34A853" />
+              <Link
+                href="https://play.google.com/store/apps/details?id=com.dignitestudios.nexahome"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-white hover:bg-gray-50 rounded-[14px] w-full sm:w-auto transition-all shadow-md hover:shadow-lg group"
+              >
+                <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24">
                   <path
-                    d="M20.5 10.5L17.5 15.97L13.5 12L17.5 8.03Z"
+                    d="M3.609 1.814L13.793 12 3.61 22.186c-.352-.338-.61-.84-.61-1.472V3.286c0-.632.258-1.134.61-1.472z"
+                    fill="#4285F4"
+                  />
+                  <path
+                    d="M17.186 8.608L13.793 12l3.393 3.392 3.844-2.183c1.037-.589 1.037-1.83 0-2.418l-3.844-2.183z"
                     fill="#FBBC05"
                   />
-                  <path d="M5.5 1L17.5 8.03L13.5 12Z" fill="#EA4335" />
+                  <path
+                    d="M13.793 12L3.61 1.814c.264-.253.647-.414 1.11-.414.479 0 .973.178 1.48.466l10.986 6.242L13.793 12z"
+                    fill="#EA4335"
+                  />
+                  <path
+                    d="M13.793 12l3.393 3.392-10.986 6.242c-.507.288-1.001.466-1.48.466-.463 0-.846-.161-1.11-.414L13.793 12z"
+                    fill="#34A853"
+                  />
                 </svg>
 
-                <div className="flex flex-col items-start">
-                  {/* <span className="text-[10px] uppercase text-[#807F7F] font-semibold">
-                    Coming soon on
-                  </span> */}
-                  <span className="text-base font-bold text-[#302F2F]">
-                    Google Play
-                  </span>
-                </div>
+                <span className="text-base sm:text-lg font-bold text-[#302F2F] tracking-tight">
+                  Google Play
+                </span>
               </Link>
 
               {/* App Store */}
-              <Link href="https://apps.apple.com/us/app/nexahome-app/id6769668269" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-5 py-3 bg-[#F8F8F8] rounded-[10px] w-full sm:w-auto">
-                <svg width="22" height="26" viewBox="0 0 22 26">
-                  <path
-                    d="M18.09 13.74C18.07 11.1 20.24 9.82 20.34 9.76C19.12 7.97 17.23 7.72 16.57 7.7C14.96 7.53 13.4 8.65 12.58 8.65C11.74 8.65 10.47 7.72 9.1 7.75C7.35 7.78 5.72 8.77 4.82 10.33C2.97 13.5 4.35 18.17 6.12 20.74C7.01 22 8.07 23.43 9.47 23.38C10.84 23.32 11.35 22.52 12.97 22.52C14.57 22.52 15.05 23.38 16.48 23.35C17.95 23.32 18.87 22.06 19.73 20.78C20.76 19.32 21.18 17.89 21.2 17.82C21.17 17.81 18.11 16.62 18.09 13.74Z"
-                    fill="#302F2F"
-                  />
+              <Link
+                href="https://apps.apple.com/us/app/nexahome-app/id6769668269"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-6 py-3.5 bg-white hover:bg-gray-50 rounded-[14px] w-full sm:w-auto transition-all shadow-md hover:shadow-lg group"
+              >
+                <svg
+                  className="w-6 h-6 flex-shrink-0 fill-[#302F2F]"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z" />
                 </svg>
 
-                <div className="flex flex-col items-start">
-                  {/* <span className="text-[10px] uppercase text-[#807F7F] font-semibold">
-                    Coming soon on
-                  </span> */}
-                  <span className="text-base font-bold text-[#302F2F]">
-                    App Store
-                  </span>
-                </div>
+                <span className="text-base sm:text-lg font-bold text-[#302F2F] tracking-tight">
+                  App Store
+                </span>
               </Link>
             </div>
           </div>
