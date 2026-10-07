@@ -5,29 +5,30 @@ import { useRouter, usePathname } from "next/navigation";
 import { Home, Wrench, ArrowRight } from "lucide-react";
 
 export default function WelcomeModal() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const router = useRouter();
   const pathname = usePathname();
+  const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isTargetRoute = pathname === "/" || pathname === "/homeowners";
 
   useEffect(() => {
     setMounted(true);
     try {
-      const alreadySeen = localStorage.getItem("nexahome_welcome_seen");
-      if (pathname === "/" && !alreadySeen) {
-        setIsOpen(true);
-      } else {
-        setIsOpen(false);
-      }
+      localStorage.removeItem("nexahome_welcome_seen");
+      localStorage.removeItem("nexahome_role");
+      sessionStorage.removeItem("nexahome_role");
     } catch {
-      if (pathname === "/") {
-        setIsOpen(true);
-      }
+      // ignore
     }
-  }, [pathname]);
+
+    if (isTargetRoute) {
+      setIsOpen(true);
+    }
+  }, []);
 
   useEffect(() => {
-    if (isOpen && pathname === "/") {
+    if (mounted && isOpen && isTargetRoute) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -35,22 +36,20 @@ export default function WelcomeModal() {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isOpen, pathname]);
+  }, [mounted, isOpen, isTargetRoute]);
 
-  if (!mounted || !isOpen || pathname !== "/") return null;
+  if (!mounted || !isOpen || !isTargetRoute) return null;
 
   const handleSelectRole = (role) => {
-    try {
-      localStorage.setItem("nexahome_welcome_seen", "true");
-      localStorage.setItem("nexahome_role", role);
-    } catch {
-      // ignore
-    }
     setIsOpen(false);
     if (role === "homeowner") {
-      router.push("/homeowners");
+      if (pathname !== "/homeowners") {
+        router.push("/homeowners");
+      }
     } else if (role === "expert") {
-      router.push("/");
+      if (pathname !== "/") {
+        router.push("/");
+      }
     }
   };
 
