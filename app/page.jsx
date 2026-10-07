@@ -4,7 +4,6 @@ import WhyPartner from "../components/WhyPartner";
 import About from "../components/About";
 import HowToJoin from "../components/HowToJoin";
 import FAQ from "../components/FAQ";
-import WelcomeModal from "../components/WelcomeModal";
 import CtaBanner from "../components/CtaBanner";
 import Footer from "../components/Footer";
 
@@ -32,7 +31,6 @@ export const metadata = {
 export default function Home() {
   return (
     <main>
-      <WelcomeModal />
       <Navbar />
 
       <Hero />

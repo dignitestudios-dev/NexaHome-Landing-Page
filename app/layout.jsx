@@ -1,5 +1,6 @@
 import "./globals.css";
 import AosInit from "../components/AosInit";
+import WelcomeModal from "../components/WelcomeModal";
 
 const siteUrl = "https://nexahomeapp.com";
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <AosInit />
+        <WelcomeModal />
         {children}
       </body>
     </html>

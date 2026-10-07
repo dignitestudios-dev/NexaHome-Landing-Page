@@ -10,7 +10,9 @@ export default function WelcomeModal() {
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const isTargetRoute = pathname === "/" || pathname === "/homeowners";
+  // Normalize pathname (handles potential trailing slashes e.g. "/homeowners/")
+  const cleanPath = (pathname || "").toLowerCase().replace(/\/+$/, "");
+  const isTargetRoute = cleanPath === "" || cleanPath === "/homeowners";
 
   useEffect(() => {
     setMounted(true);
@@ -43,11 +45,11 @@ export default function WelcomeModal() {
   const handleSelectRole = (role) => {
     setIsOpen(false);
     if (role === "homeowner") {
-      if (pathname !== "/homeowners") {
+      if (cleanPath !== "/homeowners") {
         router.push("/homeowners");
       }
     } else if (role === "expert") {
-      if (pathname !== "/") {
+      if (cleanPath !== "") {
         router.push("/");
       }
     }
